@@ -16,6 +16,10 @@ PROYECTO DE SEGURIDAD.pdf
 # Logotipo CCIET de baja resolución, sustituido por Tachira.png
 logo.jpg
 
+# Auditoría interna: análisis de márgenes, premortem y estrategia de
+# negociación. No debe quedar visible para CCIET ni para la competencia.
+AUDITORIA.md
+
 # Temporales del proceso de generación
 _*
 *.tmp

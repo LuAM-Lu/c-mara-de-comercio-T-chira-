@@ -32,7 +32,8 @@ Todo lo que cambia con frecuencia vive en un solo bloque, al inicio del
 | Tasa de cambio Bs./USD | `CONFIG.tasaBs` |
 | Descuento por pago de contado | `CONFIG.descuentoContado` |
 | Calendario de pago a 45 días | `CONFIG.calendario` |
-| Mínimo de locales por jornada | `CONFIG.minimoJornada` |
+| Mínimo de afiliados para activar el convenio | `CONFIG.minimoJornada` |
+| Tasa de cambio: fecha de referencia | `CONFIG.tasaFecha` |
 | Tarifas de instalación | `CONFIG.tabulador` |
 | Composición de los paquetes | `CONFIG.paquetes` |
 
@@ -45,10 +46,12 @@ códigos y sus renglones de mano de obra.
 ## Estructura del documento
 
 1. **Resumen ejecutivo** — la propuesta en cuatro puntos
-2. **El convenio** — mecánica y aporte de cada parte
+   - Franja "Más allá de la seguridad" — aporte al progreso del municipio, sin numerar
+2. **El convenio** — mecánica y aporte de cada parte, incluido el rol de CCIET como aval de negociación
 3. **Alcance** — familias de producto, marcas, tabulador de instalación y catálogo
-4. **Paquetes y pago** — tres configuraciones, calculadora y comparador
-5. **Cómo se ejecuta** — modelo de jornada por corredor comercial
+4. **Paquetes y pago** — tres paquetes y un cotizador tipo factura en modal (agrega equipo por
+   equipo, sugiere la mano de obra sola y calcula el plan de pago)
+5. **Cómo se ejecuta** — mínimo de afiliados para activar el convenio (`CONFIG.minimoJornada`)
 6. **Condiciones** — articulado propuesto
 
 ---

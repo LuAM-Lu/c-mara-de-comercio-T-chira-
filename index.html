@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#08172F">
-<meta name="description" content="Propuesta de convenio comercial de Electro Shop Morandin a la Cámara de Comercio e Industria del Estado Táchira: equipamiento, instalación especializada y financiamiento para las empresas afiliadas.">
-<meta property="og:title" content="Propuesta de Convenio · Electro Shop Morandin">
-<meta property="og:description" content="Equipamiento, mano de obra especializada y financiamiento para las empresas afiliadas a CCIET. Sin costo ni riesgo para la Cámara.">
+<meta name="description" content="Propuesta de convenio comercial de Electro Shop Morandin, C.A. a la Cámara de Comercio e Industria del Estado Táchira: equipamiento, instalación especializada y financiamiento para las empresas afiliadas.">
+<meta property="og:title" content="Propuesta de Convenio · Electro Shop Morandin, C.A.">
+<meta property="og:description" content="Equipamiento, mano de obra especializada y financiamiento para las empresas afiliadas a la Cámara de Comercio e Industria del Táchira (CCIET). Sin costo ni riesgo para CCIET.">
 <meta property="og:type" content="website">
 <!--ARTIFACT-START-->
 <title>Convenio Electro Shop · CCIET</title>
@@ -80,6 +80,9 @@
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
+/* El atributo hidden debe ganarle a cualquier display: de una clase (p. ej. .btn{display:inline-flex}
+   lo pisaba y dejaba botones "ocultos" visibles). */
+[hidden]{ display:none !important; }
 html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
 @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
 
@@ -163,8 +166,9 @@ section[id]{ scroll-margin-top:76px; }
   display:inline-flex; align-items:center; gap:8px; padding:6px 13px;
   border-radius:100px; background:var(--brand-050); border:1px solid var(--brand-100);
   font-family:var(--ff-display); font-weight:600; font-size:.76rem;
-  letter-spacing:.06em; color:var(--brand); white-space:nowrap;
+  letter-spacing:.06em; color:var(--brand); white-space:nowrap; max-width:100%;
 }
+@media (max-width:520px){ .pill{ white-space:normal; text-wrap:balance; } }
 .pill--cover{ background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.24); color:#DCE8FB; }
 .pill--solid{ background:var(--brand); border-color:var(--brand); color:#fff; }
 
@@ -193,6 +197,7 @@ section[id]{ scroll-margin-top:76px; }
 .mark__txt{ display:flex; flex-direction:column; line-height:1.2; }
 .mark__txt b{ font-family:var(--ff-display); font-weight:700; font-size:.94rem; letter-spacing:-.01em; }
 .mark__txt small{ font-family:var(--ff-display); font-weight:500; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+@media (max-width:340px){ .mark__txt small{ display:none; } }
 .nav__links{ display:flex; gap:2px; margin-left:auto; }
 .nav__links a{
   padding:9px 12px; border-radius:7px; font-family:var(--ff-display); font-weight:500;
@@ -250,8 +255,8 @@ section[id]{ scroll-margin-top:76px; }
 .docref__m i{ width:3px; height:3px; border-radius:50%; background:rgba(220,232,251,.45); flex:none; }
 
 
-.cover__body{ display:grid; grid-template-columns:1.25fr .75fr; gap:clamp(30px,5vw,64px); align-items:start; margin-top:clamp(34px,5vw,54px); }
-.cover__copy{ display:flex; flex-direction:column; gap:22px; align-items:flex-start; }
+.cover__body{ display:grid; grid-template-columns:1.25fr .75fr; gap:clamp(30px,5vw,64px); align-items:start; margin-top:clamp(34px,5vw,54px); min-width:0; }
+.cover__copy{ display:flex; flex-direction:column; gap:22px; align-items:flex-start; min-width:0; max-width:100%; }
 .cover__copy p{ color:rgba(226,236,252,.86); }
 .cover__actions{ display:flex; flex-wrap:wrap; gap:12px; }
 
@@ -285,6 +290,29 @@ section[id]{ scroll-margin-top:76px; }
 .sum h3{ margin-bottom:5px; }
 .sum p{ font-size:.96rem; color:var(--ink-2); }
 @media (max-width:780px){ .summary{ grid-template-columns:1fr; } }
+
+/* ═══ VISIÓN · PROGRESO DEL MUNICIPIO ═══════════════════ */
+.vision{ background:linear-gradient(155deg,var(--brand-900),var(--brand-800) 75%); color:#fff; }
+.vision .tag{ color:var(--brand-200); }
+.vision h2{ color:#fff; margin-top:10px; max-width:22ch; }
+.vision .lede{ color:rgba(226,236,252,.82); margin-top:14px; max-width:62ch; }
+/* Sección 01 fusionada: resumen ejecutivo + visión, un solo fondo oscuro continuo */
+.vision .clause__n{ background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.24); color:#fff; }
+.vision .clause__meta::after{ background:rgba(255,255,255,.18); }
+.vision .clause__kicker{ color:rgba(226,236,252,.7); }
+.vision .clause .lede{ margin-top:0; }
+.vision .sum h3{ color:#fff; }
+.vision .sum p{ color:rgba(226,236,252,.8); }
+.vision .sum__n{ background:rgba(255,255,255,.16); }
+.vision__div{ height:1px; background:rgba(255,255,255,.16); margin:clamp(36px,4.6vw,52px) 0 clamp(28px,3.6vw,40px); }
+.vision__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:clamp(28px,4vw,40px); }
+.vision__it{ background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16); border-radius:13px; padding:clamp(18px,2.2vw,24px); }
+.vision__ic{ width:42px; height:42px; border-radius:12px; background:rgba(255,255,255,.12); color:#fff;
+             display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
+.vision__ic svg{ width:21px; height:21px; }
+.vision__it b{ display:block; font-family:var(--ff-display); font-weight:700; font-size:1rem; color:#fff; margin-bottom:6px; }
+.vision__it p{ font-size:.88rem; color:rgba(226,236,252,.78); margin:0; line-height:1.5; }
+@media (max-width:820px){ .vision__grid{ grid-template-columns:1fr; } }
 
 /* ═══ DIAGRAMAS ═════════════════════════════════════════ */
 .figure{ display:flex; flex-direction:column; gap:14px; }
@@ -359,11 +387,33 @@ section[id]{ scroll-margin-top:76px; }
 .cats--3{ grid-template-columns:repeat(3,1fr); }
 @media (max-width:980px){ .cats, .cats--3{ grid-template-columns:repeat(3,1fr); } }
 @media (max-width:820px){ .cats, .cats--3{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:560px){ .cats, .cats--3{ grid-template-columns:1fr; } }
+@media (max-width:560px){ .cats:not(.cats--tiles), .cats--3{ grid-template-columns:1fr; } }
+/* P1-08 · Familias compactas en móvil: 2 columnas, iconos chicos, sin reservar 2 líneas */
+@media (max-width:560px){
+  .cats--tiles{ grid-template-columns:repeat(2,1fr); gap:10px; }
+  .cats--tiles .cat{ padding:14px 8px; gap:8px; }
+  .cats--tiles .cat__ic{ width:40px; height:40px; border-radius:12px; }
+  .cats--tiles .cat__ic svg{ width:20px; height:20px; }
+  .cats--tiles .cat b{ min-height:0; font-size:.82rem; line-height:1.25; }
+}
 .cat--wide{ flex-direction:row; align-items:flex-start; text-align:left; gap:18px; }
 .cat--wide .cat__ic{ width:52px; height:52px; border-radius:14px; }
 .cat--wide .cat__ic svg{ width:26px; height:26px; }
-@media (max-width:640px){ .cat--wide{ flex-direction:column; align-items:center; text-align:center; } }
+@media (max-width:640px){ .cat--wide:not(.cat--strip){ flex-direction:column; align-items:center; text-align:center; } }
+/* Fila única compacta también en móvil (pedido: item 5 del brief) */
+.cat--strip{ align-items:center; padding:16px 20px; gap:16px; }
+.cat--strip .cat__ic{ width:42px; height:42px; border-radius:11px; flex:none; }
+.cat--strip .cat__ic svg{ width:21px; height:21px; }
+.cat--strip__txt{ display:flex; flex-direction:column; gap:2px; }
+.cat--strip b{ font-size:.92rem; line-height:1.3; }
+.cat--strip p{ font-size:.82rem; margin:0; }
+@media (max-width:640px){
+  .cat--strip{ padding:13px 16px; }
+  .cat--strip .cat__ic{ width:36px; height:36px; }
+  .cat--strip .cat__ic svg{ width:18px; height:18px; }
+  .cat--strip b{ font-size:.85rem; }
+  .cat--strip p{ font-size:.78rem; }
+}
 
 /* ═══ EXPLORADOR DE CATÁLOGO (sección 4) ══════════════════════ */
 .cat__n{ font-family:var(--ff-display); font-weight:700; font-size:1.6rem; color:var(--brand); line-height:1; }
@@ -457,7 +507,7 @@ section[id]{ scroll-margin-top:76px; }
 
 /* La tabla editorial define su propio ancho; sin mínimo ni columnas fijas. */
 #catTable{ min-width:0; }
-.catmore{ display:flex; justify-content:center; margin-top:16px; }
+.catmore{ display:flex; justify-content:center; gap:10px; margin-top:16px; }
 .catmore[hidden]{ display:none; }
 .catempty{ padding:36px 20px; text-align:center; color:var(--muted); }
 
@@ -518,7 +568,7 @@ section[id]{ scroll-margin-top:76px; }
 
 /* ═══ COMBOS ════════════════════════════════════════════ */
 .combos{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.2vw,22px); align-items:stretch; }
-.combo{ position:relative; background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:clamp(20px,2.6vw,28px); display:flex; flex-direction:column; gap:15px; transition:border-color .2s, transform .2s, box-shadow .2s; }
+.combo{ position:relative; background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:clamp(16px,2.2vw,22px); display:flex; flex-direction:column; gap:12px; transition:border-color .2s, transform .2s, box-shadow .2s; }
 .combo:hover{ border-color:var(--brand-200); transform:translateY(-3px); box-shadow:var(--shadow-sm); }
 .combo--focus{ border-color:var(--brand); box-shadow:0 0 0 1px var(--brand), var(--shadow-sm); }
 .combo__hd{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
@@ -529,7 +579,7 @@ section[id]{ scroll-margin-top:76px; }
                 display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 .combo__name{ min-height:calc(1.2em * 2); display:flex; align-items:flex-end; }
 .combo .bom{ min-height:0; }
-.combo__price{ padding:15px 0; border-block:1px solid var(--line); display:flex; flex-direction:column; gap:4px; }
+.combo__price{ padding:11px 0; border-block:1px solid var(--line); display:flex; flex-direction:column; gap:4px; }
 .combo__lbl{ font-family:var(--ff-display); font-weight:600; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
 .combo__amt{ font-family:var(--ff-display); font-weight:700; font-size:clamp(1.7rem,3.4vw,2.1rem); line-height:1.05; color:var(--brand); display:flex; align-items:baseline; gap:6px; }
 .combo__amt span{ font-size:.82rem; color:var(--muted); font-weight:600; }
@@ -574,6 +624,18 @@ section[id]{ scroll-margin-top:76px; }
 .combo__toggle svg{ width:13px; height:13px; transition:transform .3s; }
 .combo__toggle[aria-expanded="true"] svg{ transform:rotate(180deg); }
 .combo__foot{ margin-top:auto; }
+/* P1-06 · Ficha técnica en modal superpuesto: antes cada tarjeta traía su
+   propio <details>, y al abrir una, las tres tarjetas de la fila se estiraban
+   parejo por el grid (parecía que las tres se abrían). Ahora el botón solo
+   dispara un modal compartido (#fichaModal), sin tocar la altura de las tarjetas. */
+.combo__fichabtn{
+  border:0; border-top:1px solid var(--line); background:transparent; padding-top:14px;
+  display:flex; align-items:center; justify-content:space-between; cursor:pointer; width:100%;
+  font-family:var(--ff-display); font-weight:600; font-size:.85rem; color:var(--brand);
+}
+.combo__fichabtn:hover{ color:var(--brand-700); }
+.combo__fichabtn svg{ width:14px; height:14px; color:var(--muted); }
+.qmodal__box--sm{ max-width:460px; }
 @media (max-width:980px){ .combos{ grid-template-columns:1fr; max-width:540px; margin-inline:auto; } }
 
 /* ═══ TABLA DE ESCENARIOS ═══════════════════════════════ */
@@ -598,14 +660,7 @@ tbody td b{ color:var(--ink); font-family:var(--ff-display); font-weight:600; }
 .col-focus{ background:var(--brand-050); }
 
 /* ═══ SIMULADOR ═════════════════════════════════════════ */
-.sim{ display:grid; grid-template-columns:1.1fr .9fr; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--paper); box-shadow:var(--shadow-sm); }
-.sim__ctrl{ padding:clamp(22px,3vw,32px); display:flex; flex-direction:column; gap:clamp(20px,2.6vw,26px); }
-.step{ display:flex; flex-direction:column; gap:12px; }
-.step__lbl{ display:flex; align-items:center; gap:10px; font-family:var(--ff-display); font-weight:600; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
-.step__lbl b{ flex:none; width:22px; height:22px; border-radius:6px; background:var(--brand-050); color:var(--brand); display:inline-flex; align-items:center; justify-content:center; font-size:.72rem; }
 .opts{ display:grid; gap:8px; }
-.opts--3{ grid-template-columns:repeat(3,1fr); }
-.opts--4{ grid-template-columns:repeat(4,1fr); }
 .opt{
   position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
   min-height:62px; padding:9px 7px; cursor:pointer; text-align:center;
@@ -635,23 +690,7 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 .cursw button{ min-height:40px; padding:0 18px; border:0; border-radius:100px; background:transparent; color:var(--muted); font-family:var(--ff-display); font-weight:600; font-size:.83rem; cursor:pointer; transition:.18s; }
 .cursw button[aria-pressed="true"]{ background:var(--brand); color:#fff; }
 
-.sim__out{ padding:clamp(22px,3vw,32px); display:flex; flex-direction:column; gap:16px; background:var(--brand-050); border-left:1px solid var(--line); }
-.sim__big{ display:flex; flex-direction:column; gap:2px; }
-.sim__big small{ font-family:var(--ff-display); font-weight:600; font-size:.8rem; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); }
-.sim__amount{ font-family:var(--ff-display); font-weight:700; font-size:clamp(2.5rem,6.4vw,3.5rem); line-height:1.05; color:var(--brand-800); font-variant-numeric:tabular-nums; letter-spacing:-.025em; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
-.sim__amount i{ font-style:normal; font-size:.95rem; font-weight:600; color:var(--muted); letter-spacing:0; font-family:var(--ff-display); }
-.sim__alt{ font-size:.88rem; color:var(--muted); font-variant-numeric:tabular-nums; }
-.sim__rows{ display:flex; flex-direction:column; border:1px solid var(--brand-100); border-radius:10px; overflow:hidden; background:var(--paper); }
-.sim__row{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 15px; font-size:.89rem; border-bottom:1px solid var(--line); }
-.sim__row:last-child{ border-bottom:0; }
-.sim__row span{ color:var(--muted); }
-.sim__row b{ font-family:var(--ff-display); font-weight:600; font-variant-numeric:tabular-nums; color:var(--ink); }
-.sim__row--tot{ background:var(--brand-050); }
-.sim__row--tot b{ color:var(--brand-800); }
-.sim__foot{ margin-top:auto; display:flex; flex-direction:column; gap:9px; }
 .sim__legal{ font-size:.76rem; color:var(--muted); line-height:1.5; }
-@media (max-width:900px){ .sim{ grid-template-columns:1fr; } .sim__out{ border-left:0; border-top:1px solid var(--line); } }
-@media (max-width:430px){ .opts--4{ grid-template-columns:repeat(2,1fr); } }
 
 /* ═══ CICLO DE ATENCIÓN (infografía) ═══════════════════ */
 .ciclo{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(10px,1.6vw,18px); }
@@ -675,11 +714,11 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 .ciclo__d{ font-family:var(--ff-display); font-weight:600; font-size:.72rem; letter-spacing:.11em;
            text-transform:uppercase; color:var(--muted); }
 .ciclo__p b{ font-family:var(--ff-display); font-weight:700; font-size:1.05rem; color:var(--ink); }
-.ciclo__p--fin{ background:var(--brand); border-color:var(--brand); }
+.ciclo__p--fin{ background:var(--brand-800); border-color:var(--brand-800); }
 .ciclo__p--fin .ciclo__ic{ background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.3); color:#fff; }
-.ciclo__p--fin .ciclo__d{ color:rgba(255,255,255,.75); }
+.ciclo__p--fin .ciclo__d{ color:rgba(255,255,255,.8); }
 .ciclo__p--fin b{ color:#fff; }
-.ciclo__p--fin p{ color:rgba(255,255,255,.82); }
+.ciclo__p--fin p{ color:rgba(255,255,255,.9); } /* contraste AA en ambos temas (antes fallaba en oscuro: 2.82:1) */
 @media (max-width:860px){
   .ciclo{ grid-template-columns:repeat(2,1fr); }
   .ciclo__p:nth-child(2)::after{ display:none; }
@@ -694,6 +733,9 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
         border:1px solid var(--brand-100); max-width:none; font-size:.9rem; color:var(--ink-2); line-height:1.55; }
 .aviso svg{ flex:none; width:19px; height:19px; margin-top:3px; color:var(--brand); }
 .aviso b{ color:var(--ink); font-family:var(--ff-display); font-weight:600; }
+.loss{ background:var(--brand-050); border:1px solid var(--brand-100); border-radius:12px;
+  padding:14px 18px; font-size:.95rem; color:var(--ink-2); line-height:1.5; }
+.loss b{ color:var(--brand-800); font-family:var(--ff-display); font-weight:700; }
 
 /* ═══ COBERTURA ═════════════════════════════════════════ */
 .cover-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(22px,3.2vw,40px); align-items:center; }
@@ -772,8 +814,9 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 .ptable td:first-child{ transition:padding .18s, box-shadow .18s; }
 .pd{ display:block; font-family:var(--ff-display); font-weight:600; font-size:.95rem;
      color:var(--ink); line-height:1.4; margin-bottom:4px; }
-.pm{ display:block; font-size:.78rem; color:var(--muted); letter-spacing:.01em; }
+.pm{ display:block; font-size:.78rem; color:var(--muted); letter-spacing:.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .pm b{ font-family:var(--ff-display); font-weight:600; color:var(--brand); letter-spacing:.02em; }
+.pm__pend{ font-style:normal; font-weight:600; color:#B87A0E; }
 .pp{ text-align:right; white-space:nowrap; font-family:var(--ff-display); font-weight:700;
      font-size:1.05rem; color:var(--ink); font-variant-numeric:tabular-nums; }
 .pp small{ display:block; font-weight:500; font-size:.72rem; color:var(--muted); margin-top:2px; }
@@ -804,29 +847,27 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 .compo__key b{ font-family:var(--ff-display); font-weight:600; color:var(--ink-2); font-variant-numeric:tabular-nums; }
 @media (prefers-reduced-motion:reduce){ .compo__seg{ transition:none; } }
 
-/* ═══ COMPARADOR DE PAQUETES ════════════════════════════ */
-.vsbox thead th{ text-align:right; }
-.vsbox thead th:first-child{ text-align:left; }
-.vsbox thead th.on{ color:#fff; background:var(--brand); border-bottom-color:var(--brand); }
-.vsbox tbody td{ text-align:right; font-variant-numeric:tabular-nums; }
-.vsbox tbody td.on{ background:var(--brand-050); font-weight:600; color:var(--ink); }
-.vsbox tbody tr.hi td{ font-family:var(--ff-display); font-weight:700; color:var(--brand-800); font-size:1.05rem; }
-.vsbox tbody tr.hi th{ color:var(--ink); }
-.vsbox thead th:first-child, .vsbox tbody th{ position:sticky; left:0; background:var(--paper); z-index:1; }
 
 /* ═══ SECCIÓN 8 · GARANTÍAS Y PLIEGO ═══════════════════ */
 .garantias{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,20px); }
+.garantias--4{ grid-template-columns:repeat(4,1fr); }
 .gar{
   padding:clamp(20px,2.4vw,26px); border-radius:13px;
   background:linear-gradient(160deg,var(--brand-050),var(--paper) 70%);
   border:1px solid var(--brand-100); display:flex; flex-direction:column; gap:6px;
+  transition:transform .22s, box-shadow .22s;
 }
-.gar__v{ font-family:var(--ff-display); font-weight:700; font-size:2.1rem; line-height:1; color:var(--brand); }
+.gar:hover{ transform:translateY(-3px); box-shadow:var(--shadow-sm); }
+.gar__v{ font-family:var(--ff-display); font-weight:700; font-size:2.1rem; line-height:1; color:var(--brand); font-variant-numeric:tabular-nums; }
 .gar b{ font-family:var(--ff-display); font-weight:600; font-size:1rem; color:var(--ink); margin-top:4px; }
 .gar p{ font-size:.86rem; color:var(--muted); line-height:1.5; }
-@media (max-width:760px){ .garantias{ grid-template-columns:1fr; } }
+.gar--compromiso{ background:linear-gradient(160deg,var(--brand-800),var(--brand-700) 70%); border-color:var(--brand-700); }
+.gar--compromiso .gar__v, .gar--compromiso b{ color:#fff; }
+.gar--compromiso p{ color:rgba(255,255,255,.78); }
+@media (max-width:900px){ .garantias--4{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:760px){ .garantias{ grid-template-columns:1fr; } .garantias--4{ grid-template-columns:1fr; } }
 
-.pliego{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; align-items:start; }
+.pliego{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
 .pl{
   border:1px solid var(--line); border-radius:11px; background:var(--paper);
   transition:border-color .2s, box-shadow .2s;
@@ -845,7 +886,6 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 .pl__c svg{ width:14px; height:14px; display:block; }
 .pl[open] .pl__c{ transform:rotate(180deg); }
 .pl > p{ padding:0 16px 16px; font-size:.92rem; color:var(--ink-2); max-width:var(--measure); }
-@media (max-width:900px){ .pliego{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:600px){ .pliego{ grid-template-columns:1fr; } }
 
 /* ═══ ÍNDICE LATERAL ════════════════════════════════════ */
@@ -886,19 +926,20 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 @media (max-width:420px){ .calendario{ grid-template-columns:1fr; } }
 
 /* ═══ TABULADOR DE MANO DE OBRA ═════════════════════════ */
-.tabgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(14px,2vw,20px); }
-.tabgrupo{ background:var(--paper); border:1px solid var(--line); border-radius:12px;
-           padding:clamp(18px,2.2vw,24px); }
-.tabgrupo h4{ font-family:var(--ff-display); font-weight:600; font-size:.76rem; letter-spacing:.12em;
-              text-transform:uppercase; color:var(--brand); margin-bottom:12px; }
-.tabgrupo dl{ margin:0; display:flex; flex-direction:column; }
-.tabgrupo div{ display:flex; justify-content:space-between; align-items:baseline; gap:14px;
-               padding:9px 0; border-bottom:1px solid var(--line); }
-.tabgrupo div:last-child{ border-bottom:0; }
-.tabgrupo dt{ font-size:.9rem; color:var(--ink-2); }
-.tabgrupo dd{ margin:0; font-family:var(--ff-display); font-weight:700; font-size:.95rem;
+/* Tabulador como un solo cuerpo compacto (antes: 4 tarjetas separadas) */
+.tabbody{ background:var(--paper); border:1px solid var(--line); border-radius:12px;
+          padding:4px clamp(18px,2.2vw,24px); }
+.tabgrupo{ padding:14px 0; border-bottom:1px solid var(--line); }
+.tabgrupo:last-child{ border-bottom:0; }
+.tabgrupo h4{ font-family:var(--ff-display); font-weight:600; font-size:.72rem; letter-spacing:.12em;
+              text-transform:uppercase; color:var(--brand); margin-bottom:8px; }
+.tabgrupo dl{ margin:0; display:grid; grid-template-columns:repeat(2,1fr); gap:0 24px; }
+.tabgrupo div{ display:flex; justify-content:space-between; align-items:baseline; gap:10px;
+               padding:6px 0; border-bottom:1px dashed var(--line); }
+.tabgrupo dt{ font-size:.84rem; color:var(--ink-2); }
+.tabgrupo dd{ margin:0; font-family:var(--ff-display); font-weight:700; font-size:.88rem;
               color:var(--ink); white-space:nowrap; font-variant-numeric:tabular-nums; }
-@media (max-width:760px){ .tabgrid{ grid-template-columns:1fr; } }
+@media (max-width:600px){ .tabgrupo dl{ grid-template-columns:1fr; } }
 
 /* ═══ BLOQUE DE JORNADA ═════════════════════════════════ */
 .jornada{ display:grid; grid-template-columns:auto 1fr; gap:clamp(20px,3vw,34px); align-items:center;
@@ -920,9 +961,6 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 .bomlbl{ font-family:var(--ff-display); font-weight:600; font-size:.68rem; letter-spacing:.13em;
          text-transform:uppercase; color:var(--muted); margin-top:4px; }
 .bom--mo .lin b{ font-weight:600; }
-.sim__big small{ font-family:var(--ff-display); font-weight:600; font-size:.9rem;
-                 letter-spacing:0; text-transform:none; color:var(--brand); }
-#rowAhorro[hidden]{ display:none; }
 
 /* ═══ BARRA MÓVIL ═══════════════════════════════════════ */
 .dock{
@@ -960,6 +998,151 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 .foot__marks .eslogo{ width:40px; height:40px; }
 .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px;
           overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+
+/* ══════════════════════════════════════════════════════════════
+   AUDITORIA.md · correcciones aplicadas — 28 de agosto de 2026
+   ══════════════════════════════════════════════════════════════ */
+
+/* P0-06 · Piso tipográfico de 14px en móvil para texto de contenido.
+   OJO: <html> queda al tamaño por defecto del navegador (16px); <body> es 17px.
+   Como rem se calcula sobre <html>, 14px = .875rem (NO .824rem, que da 13,2px con html=16px).
+   Se excluyen los kickers puramente decorativos (.tag, .clause__n). */
+@media (max-width:760px){
+  .small, .figure__cap, .sim__legal, .pm, .catcount, .pl__r, .combo__ideal,
+  .ciclo__p p, .gar p, .recipient dl div, .bom .lin em, .cuota__p, .opt small,
+  .bomlbl, .pl__t, .docref__m, .mark__txt small, .docref__k, .recipient__lbl,
+  .clause__kicker, .foot p, .contactcard small, .contactcard h4,
+  .marcas__lbl, .scrollhint, .aviso small{ font-size:.875rem; } /* 14px */
+  .bom .pz{ font-size:.9375rem; } /* 15px */
+  .pd{ font-size:1.0625rem; } /* 17px, iguala al cuerpo del documento */
+  /* Cotizador (agregado en la sesión del 28/08/2026) */
+  .qi__name em, .qpresets__lbl, .qtasa, .qtotals__row, .cat--strip p, .qempty{ font-size:.875rem; }
+  .qi__price, .qi__qty span{ font-size:.9375rem; } /* 15px */
+  .recipient__org small, .party__hd small, .party__foot{ font-size:.875rem; }
+}
+
+/* P0-07 · Áreas táctiles mínimas de 44px.
+   .opt (radios de paquete/modalidad) ya mide min-height:62px como <label>;
+   el <input> que reporta 13×13 va oculto dentro y no es el objetivo del toque. */
+.cursw button{ min-height:44px; }
+@media (max-width:760px){
+  .foot__col ul a{ display:inline-block; padding:11px 0; margin:-11px 0; }
+  #cTel, #cWeb{ display:inline-block; padding:12px 0; margin:-12px 0; }
+}
+
+/* P2-04 · Limitar la altura del menú móvil para que el CTA final no quede fuera de vista */
+.mobnav{ max-height:calc(100dvh - 68px); overflow-y:auto; }
+
+/* P2-01 · Hoja de estilos de impresión — la Junta imprime o exporta a PDF para el acta */
+@media print{
+  .nav, .dock, .rail, .progress, #cmpHandle, .cmp__hint, .scrollhint{ display:none !important; }
+  :root{ --paper:#fff; --paper-2:#fff; --paper-3:#fff; --ink:#0E1726; --ink-2:#38455C;
+         --muted:#6B788F; --line:#DCE4F0; --line-2:#C4D1E5; --tint:#F1F6FE;
+         --brand:#1860CC; --brand-700:#1450AD; --brand-800:#0F3C86; }
+  body{ padding-bottom:0 !important; }
+  .cover{ background:var(--cover) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  details.pl{ display:block !important; } /* el JS de beforeprint fuerza [open] */
+  .pl__c{ display:none; }
+  section{ break-inside:avoid-page; }
+}
+
+/* ═══ COTIZADOR (MODAL) ══════════════════════════════════ */
+.quotecta{ display:flex; align-items:center; justify-content:space-between; gap:20px;
+  padding:14px 16px 14px 20px; border-radius:12px; background:var(--brand-050); border:1px solid var(--brand-100); }
+.quotecta__txt h3{ font-size:.98rem; margin-bottom:2px; }
+.quotecta__txt .lede{ margin:0; font-size:.84rem; color:var(--muted); max-width:40ch; }
+.quotecta__btn{
+  flex:none; display:inline-flex; align-items:center; gap:9px; border:0; cursor:pointer;
+  padding:15px 26px; border-radius:11px; background:var(--brand); color:#fff;
+  font-family:var(--ff-display); font-weight:700; font-size:1rem;
+  box-shadow:0 10px 26px -8px rgba(24,96,204,.55); transition:transform .18s, box-shadow .18s, background .18s;
+}
+.quotecta__btn svg{ width:19px; height:19px; }
+.quotecta__btn:hover{ background:var(--brand-700); transform:translateY(-2px); box-shadow:0 14px 30px -8px rgba(24,96,204,.65); }
+@media (max-width:760px){
+  .quotecta{ flex-direction:column; align-items:stretch; text-align:center; padding:16px; }
+  .quotecta__txt .lede{ max-width:none; }
+  .quotecta__btn{ width:100%; justify-content:center; }
+}
+
+.qmodal{ position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center; padding:20px; }
+.qmodal[hidden]{ display:none; }
+.qmodal__overlay{ position:absolute; inset:0; background:rgba(8,23,47,.55); backdrop-filter:blur(2px); }
+.qmodal__box{ position:relative; width:100%; max-width:640px; max-height:min(88vh,860px); background:var(--paper);
+  border-radius:16px; box-shadow:0 30px 70px -20px rgba(0,0,0,.4); display:flex; flex-direction:column; overflow:hidden; }
+.qmodal__hd{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px 22px;
+  border-bottom:1px solid var(--line); flex:none; }
+.qmodal__hd h3{ font-size:1.15rem; }
+.qmodal__x{ width:34px; height:34px; border-radius:9px; border:1px solid var(--line); background:var(--paper);
+  color:var(--muted); font-size:1.3rem; line-height:1; cursor:pointer; flex:none; }
+.qmodal__x:hover{ color:var(--brand); border-color:var(--brand-200); }
+.qmodal__body{ padding:20px 22px; overflow-y:auto; flex:1; display:flex; flex-direction:column; gap:20px; }
+.qmodal__body > *{ flex:none; } /* evita que los hijos se compriman en el eje del flex */
+.qmodal__foot{ padding:16px 22px calc(16px + env(safe-area-inset-bottom)); border-top:1px solid var(--line);
+  background:var(--paper-2); flex:none; display:flex; flex-direction:column; gap:12px; }
+
+.qpresets__lbl{ display:block; font-family:var(--ff-display); font-weight:600; font-size:.76rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.qpresets__btns{ display:flex; gap:8px; flex-wrap:wrap; }
+.qpresets__btns button{ padding:8px 14px; border-radius:100px; border:1.5px solid var(--line); background:var(--paper);
+  font-family:var(--ff-display); font-weight:600; font-size:.82rem; color:var(--ink-2); cursor:pointer; transition:.18s; }
+.qpresets__btns button:hover{ border-color:var(--brand); color:var(--brand); }
+
+.qadd{ position:relative; display:flex; align-items:center; gap:10px; border:1.5px solid var(--line); border-radius:10px; padding:11px 14px; }
+.qadd svg{ width:18px; height:18px; color:var(--muted); flex:none; }
+.qadd input{ border:0; outline:0; background:transparent; width:100%; font-size:.95rem; color:var(--ink); }
+.qresults{ flex:none; border:1px solid var(--line); border-radius:10px; max-height:220px; overflow-y:auto; margin-top:-12px; }
+.qresults button{ display:flex; justify-content:space-between; gap:12px; width:100%; text-align:left; padding:10px 14px;
+  border:0; border-bottom:1px solid var(--line); background:var(--paper); cursor:pointer; font-size:.86rem; }
+.qresults button:last-child{ border-bottom:0; }
+.qresults button:hover{ background:var(--brand-050); }
+.qresults b{ font-weight:600; color:var(--ink); }
+.qresults small{ display:block; color:var(--muted); font-size:.76rem; }
+.qresults span{ flex:none; font-family:var(--ff-display); font-weight:700; color:var(--brand); white-space:nowrap; }
+
+.qsection .bomlbl{ margin-bottom:8px; }
+.qempty{ font-size:.85rem; color:var(--muted); }
+.qitems{ display:flex; flex-direction:column; gap:0; }
+.qitems li{ display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--line); }
+.qitems li:last-child{ border-bottom:0; }
+.qitems .qi__name{ flex:1; min-width:0; }
+.qitems .qi__name b{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  font-family:var(--ff-display); font-weight:600; font-size:.88rem; color:var(--ink); line-height:1.3; }
+.qitems .qi__name em{ font-style:normal; font-size:.76rem; color:var(--muted); }
+.qitems .qi__qty{ display:flex; align-items:center; gap:6px; flex:none; }
+.qitems .qi__qty button{ width:26px; height:26px; border-radius:7px; border:1px solid var(--line); background:var(--paper);
+  color:var(--ink-2); font-weight:700; cursor:pointer; line-height:1; }
+.qitems .qi__qty span{ min-width:18px; text-align:center; font-variant-numeric:tabular-nums; font-size:.86rem; }
+.qitems .qi__price{ flex:none; width:80px; text-align:right; font-family:var(--ff-display); font-weight:600;
+  font-size:.86rem; color:var(--ink); font-variant-numeric:tabular-nums; }
+.qitems .qi__rm{ flex:none; width:26px; height:26px; border-radius:7px; border:0; background:transparent;
+  color:var(--muted); cursor:pointer; font-size:1.05rem; }
+.qitems .qi__rm:hover{ color:#C0392B; }
+.qitems--mo .qi__name b{ color:var(--ink-2); font-weight:500; }
+.qitems--mo .qi__tag{ flex:none; font-size:.68rem; font-family:var(--ff-display); font-weight:600; color:var(--brand);
+  text-transform:uppercase; letter-spacing:.06em; background:var(--brand-050); padding:2px 8px; border-radius:100px; }
+
+.qaddmo select{ width:100%; padding:9px 12px; border-radius:9px; border:1px solid var(--line); background:var(--paper);
+  color:var(--ink-2); font-size:.86rem; margin-top:8px; }
+
+.qfoot__top{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.qtasa{ font-size:.74rem; color:var(--muted); margin:0; }
+.qtotals{ display:flex; flex-direction:column; border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+.qtotals__row{ display:flex; justify-content:space-between; gap:12px; padding:9px 13px; font-size:.86rem;
+  border-bottom:1px solid var(--line); }
+.qtotals__row:last-child{ border-bottom:0; }
+.qtotals__row span{ color:var(--muted); }
+.qtotals__row b{ font-family:var(--ff-display); font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums; }
+.qtotals__row--hi{ background:var(--brand-050); padding:12px 13px; }
+.qtotals__row--hi span{ color:var(--ink); font-weight:600; }
+.qtotals__row--hi b{ color:var(--brand-800); font-size:1.15rem; }
+.qtotals__row[hidden]{ display:none; }
+
+body.qopen{ overflow:hidden; }
+@media (max-width:640px){
+  .qmodal{ padding:0; align-items:flex-end; }
+  .qmodal__box{ max-width:none; max-height:92vh; border-radius:16px 16px 0 0; }
+}
 </style>
 </head>
 <body>
@@ -1132,9 +1315,9 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 <!-- ══════════════════ NAV ══════════════════ -->
 <header class="nav" id="nav">
   <div class="nav__in">
-    <a class="mark" href="#top" aria-label="Electro Shop Morandin — inicio">
-      <span class="eslogo" role="img" aria-label="Electro Shop Morandin"></span>
-      <span class="mark__txt"><b>Electro Shop Morandin</b><small>Propuesta de convenio</small></span>
+    <a class="mark" href="#top" aria-label="Electro Shop Morandin, C.A. — inicio">
+      <span class="eslogo" role="img" aria-label="Electro Shop Morandin, C.A."></span>
+      <span class="mark__txt"><b>Electro Shop Morandin, C.A.</b><small>Propuesta de convenio</small></span>
     </a>
     <nav class="nav__links" aria-label="Secciones del documento">
       <a href="#resumen"><svg><use href="#i-doc"/></svg>Resumen</a>
@@ -1177,8 +1360,8 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
       <div class="cover__copy">
         <span class="pill pill--cover">En respuesta al Plan Integral de Blindaje Comercial</span>
         <h1>Equipar a las empresas afiliadas para <em>cumplir el plan de PoliTáchira</em></h1>
-        <p class="lede">El 25 de agosto de 2026, PoliTáchira presentó a esta Junta el Plan Integral de Blindaje Comercial y Fortalecimiento de los Cuadrantes de Paz. El plan compromete al sector comercial a mantener cámaras externas hacia vías públicas y respaldo eléctrico en sus sistemas. Electro Shop Morandin propone ser el brazo técnico que le permita a la Cámara cumplirlo.</p>
-        <p><strong>Sin costo, sin aporte y sin obligación financiera para la Cámara.</strong></p>
+        <p class="lede">El 25 de agosto de 2026, PoliTáchira presentó a esta Junta el Plan Integral de Blindaje Comercial y Fortalecimiento de los Cuadrantes de Paz. El plan compromete al sector comercial a mantener cámaras externas hacia vías públicas y respaldo eléctrico en sus sistemas. Electro Shop Morandin, C.A. propone ser el brazo técnico que le permita a CCIET cumplirlo.</p>
+        <p><strong>Sin costo, sin aporte y sin obligación financiera para CCIET.</strong></p>
         <div class="cover__actions">
           <a class="btn btn--onCover" href="#resumen"><svg><use href="#i-down"/></svg>Leer la propuesta</a>
           <a class="btn btn--ghostCover" href="#cierre">Agendar presentación</a>
@@ -1193,7 +1376,7 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
         </div>
         <dl>
           <div><dt>Documento</dt><dd>Propuesta de convenio</dd></div>
-          <div><dt>Emisor</dt><dd>Electro Shop Morandin</dd></div>
+          <div><dt>Emisor</dt><dd>Electro Shop Morandin, C.A.</dd></div>
           <div><dt>Carácter</dt><dd>No vinculante</dd></div>
           <div><dt>Vigencia</dt><dd id="vigencia">90 días</dd></div>
         </dl>
@@ -1202,18 +1385,30 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
   </div>
 </section>
 
-<!-- ══════════════════ 01 RESUMEN ══════════════════ -->
-<section class="band" id="resumen">
+<!-- ══════════════════ 01 RESUMEN + VISIÓN DEL MUNICIPIO ══════════════════ -->
+<section class="band vision" id="resumen">
   <div class="wrap">
     <div class="clause">
       <div class="clause__meta"><span class="clause__n">01</span><span class="clause__kicker">Resumen ejecutivo</span></div>
-      <h2>La propuesta en cuatro puntos</h2>
+      <h2>Un robo cuesta más que equiparse</h2>
+      <p class="lede">La propuesta en cuatro puntos, sin riesgo para CCIET.</p>
     </div>
     <div class="summary">
-      <div class="sum rv"><span class="sum__n">1</span><div><h3>Responde a un compromiso que la Cámara ya tiene</h3><p>El Plan de PoliTáchira exige a los comercios cámaras externas hacia la vía pública y respaldo eléctrico. Esta propuesta es el medio para cumplirlo.</p></div></div>
-      <div class="sum rv"><span class="sum__n">2</span><div><h3>Dos formas de pago, ambas sin intereses</h3><p>Contado con <span data-desc>25</span>% de descuento en equipos, o financiado en tres pagos dentro de 45 días. Sin recargos por plazo.</p></div></div>
-      <div class="sum rv"><span class="sum__n">3</span><div><h3>Se ejecuta por jornadas, no una por una</h3><p>Censo por corredor, compra única e instalación por cohorte. Es lo que permite sostener el precio y los tiempos.</p></div></div>
-      <div class="sum rv"><span class="sum__n">4</span><div><h3>La Cámara no asume costo ni riesgo</h3><p>No paga, no factura, no garantiza. Su aporte es convocar; el resto lo opera Electro Shop.</p></div></div>
+      <div class="sum rv"><span class="sum__n">1</span><div><h3>Ya es un compromiso de CCIET</h3><p>El Plan de PoliTáchira compromete a los comercios a instalarlo. Nosotros lo ejecutamos.</p></div></div>
+      <div class="sum rv"><span class="sum__n">2</span><div><h3>Dos precios, sin letra pequeña</h3><p><span data-desc>25</span>% de descuento de contado, o tres pagos en 45 días a precio de lista.</p></div></div>
+      <div class="sum rv"><span class="sum__n">3</span><div><h3>Se activa con 40 afiliados</h3><p>Cualquier mezcla de paquetes. Censo, compra única e instalación por cohorte.</p></div></div>
+      <div class="sum rv"><span class="sum__n">4</span><div><h3>CCIET no arriesga nada</h3><p>No paga, no factura, no garantiza. Solo avala la negociación.</p></div></div>
+    </div>
+
+    <div class="vision__div"></div>
+
+    <span class="tag">Más allá de la seguridad</span>
+    <h2>Un Táchira más seguro es un Táchira que crece</h2>
+    <p class="lede">Cada afiliado que se equipa suma al mismo objetivo: un municipio más seguro, más moderno y más atractivo para invertir, visitar y quedarse.</p>
+    <div class="vision__grid">
+      <article class="vision__it"><span class="vision__ic"><svg><use href="#i-shield"/></svg></span><b>Confianza</b><p>Corredores comerciales bien resguardados atraen más clientes, más visitantes y más inversión al municipio.</p></article>
+      <article class="vision__it"><span class="vision__ic"><svg><use href="#i-bolt"/></svg></span><b>Modernización</b><p>Cada afiliado que se equipa suma tecnología y buenas prácticas a su negocio, no solo cámaras.</p></article>
+      <article class="vision__it"><span class="vision__ic"><svg><use href="#i-users"/></svg></span><b>Progreso compartido</b><p>Un corredor comercial seguro es un corredor donde también gana el municipio: más actividad, más empleo, más ciudad.</p></article>
     </div>
   </div>
 </section>
@@ -1224,11 +1419,11 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
     <div class="clause">
       <div class="clause__meta"><span class="clause__n">02</span><span class="clause__kicker">El convenio</span></div>
       <h2>Cómo funciona y qué aporta cada parte</h2>
-      <p class="lede">Cuatro momentos, sin intermediación económica de la Cámara en ninguno de ellos.</p>
+      <p class="lede">Cuatro momentos, sin intermediación económica de CCIET en ninguno de ellos.</p>
     </div>
 
     <ol class="ciclo rv">
-      <li class="ciclo__p"><span class="ciclo__ic"><svg><use href="#i-users"/></svg></span><span class="ciclo__d">Momento 01</span><b>La Cámara convoca</b><p>Comunica el convenio a sus afiliados por corredor comercial.</p></li>
+      <li class="ciclo__p"><span class="ciclo__ic"><svg><use href="#i-users"/></svg></span><span class="ciclo__d">Momento 01</span><b>CCIET avala y convoca</b><p>Respalda la negociación ante sus afiliados por corredor comercial.</p></li>
       <li class="ciclo__p"><span class="ciclo__ic"><svg><use href="#i-store"/></svg></span><span class="ciclo__d">Momento 02</span><b>El afiliado decide</b><p>Solicita el censo técnico, sin costo ni compromiso.</p></li>
       <li class="ciclo__p"><span class="ciclo__ic"><svg><use href="#i-tools"/></svg></span><span class="ciclo__d">Momento 03</span><b>Electro Shop ejecuta</b><p>Suministra, instala, capacita y sostiene la garantía.</p></li>
       <li class="ciclo__p ciclo__p--fin"><span class="ciclo__ic"><svg><use href="#i-shield"/></svg></span><span class="ciclo__d">Momento 04</span><b>Comercio en cumplimiento</b><p>Con cámaras hacia la vía pública y respaldo eléctrico.</p></li>
@@ -1238,9 +1433,10 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
       <article class="card party party--focus rv">
         <div class="party__hd">
           <span class="cclogo party__logo" role="img" aria-label="Cámara de Comercio e Industria del Estado Táchira"></span>
-          <span><b>La Cámara</b><small>Convoca</small></span>
+          <span><b>CCIET</b><small>Aval de negociación</small></span>
         </div>
         <ul>
+          <li><svg><use href="#i-check"/></svg><span>Respalda institucionalmente la negociación colectiva ante Electro Shop, sin comprometer recursos propios.</span></li>
           <li><svg><use href="#i-check"/></svg><span>Comunica el convenio a su base de afiliados.</span></li>
           <li><svg><use href="#i-check"/></svg><span>Facilita un espacio de presentación en asamblea.</span></li>
           <li><svg><use href="#i-check"/></svg><span>Recibe reporte semestral de afiliados atendidos.</span></li>
@@ -1261,15 +1457,15 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
       </article>
       <article class="card party rv">
         <div class="party__hd">
-          <span class="eslogo party__logo" role="img" aria-label="Electro Shop Morandin"></span>
-          <span><b>Electro Shop Morandin</b><small>Ejecuta</small></span>
+          <span class="eslogo party__logo" role="img" aria-label="Electro Shop Morandin, C.A."></span>
+          <span><b>Electro Shop Morandin, C.A.</b><small>Ejecuta</small></span>
         </div>
         <ul>
           <li><svg><use href="#i-check"/></svg><span>Inventario, equipos y repuestos.</span></li>
           <li><svg><use href="#i-check"/></svg><span>Mano de obra especializada propia.</span></li>
           <li><svg><use href="#i-check"/></svg><span>Garantía, soporte y riesgo del financiamiento.</span></li>
         </ul>
-        <p class="party__foot">Nuestro retorno es el volumen. Por eso no solicitamos contraprestación a la Cámara.</p>
+        <p class="party__foot">Nuestro retorno es el volumen. Por eso no solicitamos contraprestación a CCIET.</p>
       </article>
     </div>
 
@@ -1288,10 +1484,12 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 
     <div class="cats cats--tiles" id="famGrid"></div>
 
-    <article class="cat cat--wide rv" style="margin-top:clamp(14px,2vw,20px)">
+    <article class="cat cat--wide cat--strip rv" style="margin-top:clamp(14px,2vw,20px)">
       <span class="cat__ic"><svg><use href="#i-tools"/></svg></span>
-      <b>Mano de obra especializada, con tarifa publicada</b>
-      <p>Técnicos propios: levantamiento, montaje, configuración, capacitación del personal y atención de garantías. La instalación se cobra por punto según el tabulador de abajo, nunca como porcentaje del equipo.</p>
+      <div class="cat--strip__txt">
+        <b>Mano de obra especializada</b>
+        <p>Técnicos propios. Se cobra por punto, nunca como porcentaje del equipo.</p>
+      </div>
     </article>
 
     <div class="marcas rv">
@@ -1301,7 +1499,7 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 
     <h3 style="margin-top:clamp(40px,5vw,58px);margin-bottom:8px">Tabulador de mano de obra</h3>
     <p class="lede" style="margin-bottom:20px">Tarifas cerradas por punto instalado. El punto de cámara incluye hasta 20 metros de tendido.</p>
-    <div class="tabgrid" id="tabulador"></div>
+    <div class="tabbody rv" id="tabulador"></div>
 
     <h3 style="margin-top:clamp(40px,5vw,58px);margin-bottom:8px">Catálogo</h3>
     <p class="lede" style="margin-bottom:20px">Filtre por familia o busque por código y descripción.</p>
@@ -1326,7 +1524,10 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
         <tbody id="catBody"></tbody>
       </table>
     </div>
-    <div class="catmore rv"><button class="btn btn--line" type="button" id="catMore">Ver más productos</button></div>
+    <div class="catmore rv">
+      <button class="btn btn--line" type="button" id="catMore">Ver más productos</button>
+      <button class="btn btn--line" type="button" id="catCollapse" hidden>Ver menos</button>
+    </div>
     <p class="figure__cap" style="margin-top:16px"><b>Tabla 1.</b> Precios unitarios en dólares, sin instalación. El pago de contado obtiene <span data-desc>25</span>% de descuento sobre el producto. Sujetos a existencia y a revisión periódica.</p>
   </div>
 </section>
@@ -1340,7 +1541,19 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
       <p class="lede">Configuraciones armadas para cumplir el estándar que pide el Plan: cámara hacia la vía pública, grabación continua y respaldo eléctrico.</p>
     </div>
 
-    <div class="demo rv">
+    <p class="loss rv" id="lossBanner"></p>
+
+    <div class="combos" id="paqGrid" style="margin-top:clamp(20px,2.6vw,26px)"></div>
+
+    <div class="quotecta rv" style="margin-top:clamp(24px,3vw,32px)">
+      <div class="quotecta__txt">
+        <h3>Arma tu cotización</h3>
+        <p class="lede">Agrega equipo por equipo: la instalación y el pago se calculan solos.</p>
+      </div>
+      <button type="button" class="quotecta__btn" id="openQuote"><svg><use href="#i-coin"/></svg>Abrir cotizador</button>
+    </div>
+
+    <div class="demo rv" style="margin-top:clamp(40px,5vw,58px)">
       <div class="cmp" id="cmp">
         <div class="cmp__layer cmp__layer--new" data-scene></div>
         <div class="cmp__layer cmp__layer--old" id="cmpOld" data-scene></div>
@@ -1362,54 +1575,6 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
       </div>
     </div>
 
-    <div class="combos" id="paqGrid" style="margin-top:clamp(38px,5vw,54px)"></div>
-
-    <h3 style="margin-top:clamp(40px,5vw,58px);margin-bottom:8px">Calcule su forma de pago</h3>
-    <p class="lede" style="margin-bottom:20px">Elija paquete y modalidad. Los montos se actualizan al instante.</p>
-
-    <div class="sim rv">
-      <div class="sim__ctrl">
-        <div class="step">
-          <p class="step__lbl"><b>A</b> Paquete</p>
-          <div class="opts opts--3" id="selPaq"></div>
-        </div>
-        <div class="step">
-          <p class="step__lbl"><b>B</b> Forma de pago</p>
-          <div class="opts opts--2" id="selModo"></div>
-        </div>
-        <div class="step">
-          <p class="step__lbl"><b>C</b> Moneda</p>
-          <div class="cursw" role="group" aria-label="Moneda">
-            <button type="button" data-cur="USD" aria-pressed="true">USD $</button>
-            <button type="button" data-cur="VES" aria-pressed="false">Bolívares</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="sim__out">
-        <div class="sim__big">
-          <small id="outPaq">—</small>
-          <p class="sim__amount" id="outTotal">—</p>
-          <p class="sim__alt" id="outTotalAlt"></p>
-        </div>
-        <div class="sim__rows">
-          <div class="sim__row"><span>Equipos</span><b id="outEquipos">—</b></div>
-          <div class="sim__row" id="rowAhorro"><span>Descuento de contado</span><b id="outAhorro">—</b></div>
-          <div class="sim__row"><span>Instalación</span><b id="outMano">—</b></div>
-        </div>
-        <div class="calendario" id="calendario"></div>
-        <p class="sim__legal" id="calNota"></p>
-        <div class="sim__foot">
-          <a class="btn btn--solid btn--wide" id="waPlan" href="#" target="_blank" rel="noopener">
-            <svg><use href="#i-wa"/></svg>Consultar este paquete
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <h3 style="margin-top:clamp(40px,5vw,58px);margin-bottom:14px">Comparación renglón por renglón</h3>
-    <p class="scrollhint"><svg><use href="#i-lr"/></svg>Deslice para comparar</p>
-    <div class="tablebox vsbox rv"><table><tbody id="vsBody"></tbody></table></div>
     <p class="figure__cap" style="margin-top:16px">Montos referenciales sujetos al censo técnico de cada local. Trabajos en altura superior a tres metros llevan el recargo indicado en el tabulador.</p>
   </div>
 </section>
@@ -1419,15 +1584,14 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
   <div class="wrap">
     <div class="clause">
       <div class="clause__meta"><span class="clause__n">05</span><span class="clause__kicker">Ejecución</span></div>
-      <h2>Se ejecuta por jornadas, corredor por corredor</h2>
-      <p class="lede">Electro Shop opera desde Guanare. Lo decimos de entrada porque define cómo se organiza el trabajo: no atendemos local por local, sino por campañas coordinadas con la Cámara.</p>
+      <h2>Se activa con un mínimo de afiliados</h2>
+      <p class="lede">Electro Shop opera desde Guanare: por eso el convenio se ejecuta por cohortes, coordinadas con la Cámara de Comercio e Industria del Táchira (CCIET), no afiliado por afiliado.</p>
     </div>
 
     <div class="jornada rv">
-      <div class="jornada__n"><b data-min-jornada>8</b><span>locales mínimo para programar una jornada</span></div>
+      <div class="jornada__n"><b data-min-jornada>40</b><span>afiliados mínimo para activar el convenio</span></div>
       <div class="jornada__t">
-        <p>Reunidos los inscritos de un corredor comercial, se hace una <b>compra única</b> y una <b>jornada de instalación</b> que atiende a todos. Consolidar el viaje es lo que permite sostener el precio publicado y los tiempos comprometidos.</p>
-        <p class="small">Óptimo por jornada: <b data-opt-jornada>12</b> locales. Por debajo del mínimo, la campaña se reprograma hasta completar el cupo.</p>
+        <p>Cualquier mezcla de los tres paquetes —Micro, Local o Corporativo— cuenta para el mínimo. Alcanzado, se hace una <b>compra única</b> y una <b>jornada de instalación</b> que atiende a toda la cohorte.</p>
       </div>
     </div>
 
@@ -1435,16 +1599,16 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
       <li class="ciclo__p"><span class="ciclo__ic"><svg><use href="#i-search"/></svg></span><span class="ciclo__d">Paso 01</span><b>Censo</b><p>Levantamiento técnico por corredor, sin costo.</p></li>
       <li class="ciclo__p"><span class="ciclo__ic"><svg><use href="#i-doc"/></svg></span><span class="ciclo__d">Paso 02</span><b>Inscripción</b><p>Cada afiliado elige paquete y forma de pago.</p></li>
       <li class="ciclo__p"><span class="ciclo__ic"><svg><use href="#i-box"/></svg></span><span class="ciclo__d">Paso 03</span><b>Compra única</b><p>Un solo pedido consolidado para toda la cohorte.</p></li>
-      <li class="ciclo__p ciclo__p--fin"><span class="ciclo__ic"><svg><use href="#i-tools"/></svg></span><span class="ciclo__d">Paso 04</span><b>Jornada</b><p>La cuadrilla instala todos los locales del corredor.</p></li>
+      <li class="ciclo__p ciclo__p--fin"><span class="ciclo__ic"><svg><use href="#i-tools"/></svg></span><span class="ciclo__d">Paso 04</span><b>Jornada</b><p>La cuadrilla instala a todos los afiliados inscritos.</p></li>
     </ol>
 
     <div class="cats cats--3" style="margin-top:clamp(30px,4vw,44px)">
-      <article class="cat rv"><span class="cat__ic"><svg><use href="#i-tools"/></svg></span><b>Garantía por reposición</b><p>Se sustituye el equipo. El comercio no espera reparaciones.</p></article>
+      <article class="cat rv"><span class="cat__ic"><svg><use href="#i-tools"/></svg></span><b>Garantía por reposición</b><p>Se sustituye el equipo. El afiliado no espera reparaciones.</p></article>
       <article class="cat rv"><span class="cat__ic"><svg><use href="#i-box"/></svg></span><b>Repuestos en cada ruta</b><p>La cuadrilla viaja con respaldo de lo instalado en el estado.</p></article>
       <article class="cat rv"><span class="cat__ic"><svg><use href="#i-pin"/></svg></span><b>Sede en el Táchira</b><p>Al alcanzar volumen sostenido, punto permanente en San Cristóbal.</p></article>
     </div>
 
-    <p class="aviso rv"><svg><use href="#i-check"/></svg><span><b>Lo que no prometemos:</b> atención el mismo día ni presencia técnica permanente mientras no exista la operación que la sostenga. Preferimos comprometer plazos verificables.</span></p>
+    <p class="aviso rv"><svg><use href="#i-check"/></svg><span><b>Lo que no prometemos:</b> atención el mismo día. Preferimos comprometer plazos verificables.</span></p>
   </div>
 </section>
 
@@ -1456,21 +1620,22 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
       <h2>Condiciones propuestas</h2>
     </div>
 
-    <div class="garantias rv">
-      <div class="gar"><span class="gar__v">Bs. 0</span><b>Sin costo para la Cámara</b><p>Ni aporte, ni cuota, ni contraprestación económica.</p></div>
-      <div class="gar"><span class="gar__v">No</span><b>Sin exclusividad</b><p>La Cámara puede convenir con otros proveedores del ramo.</p></div>
-      <div class="gar"><span class="gar__v">12</span><b>Meses renovables</b><p>Con revisión conjunta a los seis y salida sin penalidad.</p></div>
+    <div class="garantias garantias--4 rv">
+      <div class="gar"><span class="gar__v">Bs. 0</span><b>Sin costo para CCIET</b><p>Ni aporte, ni cuota, ni contraprestación económica.</p></div>
+      <div class="gar"><span class="gar__v">No</span><b>Sin exclusividad</b><p>La Cámara de Comercio e Industria del Táchira puede convenir con otros proveedores del ramo.</p></div>
+      <div class="gar gar--compromiso"><span class="gar__v" data-count="72">0</span><b>Horas de respuesta a garantía</b><p>Plazo máximo comprometido por Electro Shop para atender un reclamo del afiliado.</p></div>
+      <div class="gar"><span class="gar__v" data-count="12">0</span><b>Meses renovables</b><p>Salida de cualquiera de las partes sin penalidad.</p></div>
     </div>
 
     <p class="tag rv" style="margin:clamp(32px,4vw,44px) 0 14px">El articulado</p>
     <div class="pliego rv">
       <details class="pl"><summary><span class="pl__n">6.1</span><span class="pl__t">Objeto</span><span class="pl__r">Equipamiento para que los afiliados cumplan el Plan.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Establecer condiciones comerciales para el suministro e instalación de equipamiento que permita a las empresas afiliadas a CCIET cumplir los compromisos del Plan Integral de Blindaje Comercial presentado por PoliTáchira.</p></details>
-      <details class="pl"><summary><span class="pl__n">6.2</span><span class="pl__t">Gratuidad</span><span class="pl__r">Sin costo, aporte ni cuota para la Cámara.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>El convenio no genera costo, aporte, cuota ni obligación económica alguna para CCIET, ni al suscribirse ni durante su vigencia.</p></details>
-      <details class="pl"><summary><span class="pl__n">6.3</span><span class="pl__t">Exclusividad</span><span class="pl__r">No se solicita. La Cámara sigue libre.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>La Cámara conserva plena libertad de suscribir convenios equivalentes con otros proveedores del mismo ramo.</p></details>
-      <details class="pl"><summary><span class="pl__n">6.4</span><span class="pl__t">Formas de pago</span><span class="pl__r">Contado con descuento o tres pagos en 45 días.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Pago de contado con <span data-desc>25</span>% de descuento sobre el valor de los equipos, o financiamiento sin intereses en tres pagos dentro de cuarenta y cinco días: 50% a la firma, 25% al día 22 y 25% al día 45. La instalación se cobra íntegra en ambas modalidades.</p></details>
+      <details class="pl"><summary><span class="pl__n">6.2</span><span class="pl__t">Gratuidad</span><span class="pl__r">Sin costo, aporte ni cuota para CCIET.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>El convenio no genera costo, aporte, cuota ni obligación económica alguna para CCIET, ni al suscribirse ni durante su vigencia.</p></details>
+      <details class="pl"><summary><span class="pl__n">6.3</span><span class="pl__t">Exclusividad</span><span class="pl__r">No se solicita. CCIET sigue libre.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>CCIET conserva plena libertad de suscribir convenios equivalentes con otros proveedores del mismo ramo.</p></details>
+      <details class="pl"><summary><span class="pl__n">6.4</span><span class="pl__t">Formas de pago</span><span class="pl__r">Contado con descuento o tres pagos en 45 días.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Pago de contado con <span data-desc>25</span>% de descuento sobre el valor de los equipos, o precio de lista en tres pagos dentro de cuarenta y cinco días: 50% a la firma, 25% al día 22 y 25% al día 45. La diferencia entre ambas modalidades es el costo de diferir el pago. La instalación se cobra íntegra en ambas modalidades.</p></details>
       <details class="pl"><summary><span class="pl__n">6.5</span><span class="pl__t">Moneda</span><span class="pl__r">Precios en dólares, pago en bolívares a tasa del día.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Los precios se expresan en dólares estadounidenses y los pagos se reciben en bolívares al tipo de cambio vigente el día de cada abono.</p></details>
-      <details class="pl"><summary><span class="pl__n">6.6</span><span class="pl__t">Relación directa</span><span class="pl__r">La Cámara no es parte de la operación.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Toda operación se perfecciona entre Electro Shop Morandin y la empresa afiliada. La Cámara no factura, no garantiza pagos y no responde por incumplimientos de ninguna de las partes.</p></details>
-      <details class="pl"><summary><span class="pl__n">6.7</span><span class="pl__t">Jornadas</span><span class="pl__r">Mínimo de <span data-min-jornada>8</span> locales por corredor.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Los precios publicados corresponden a la modalidad de jornada por corredor comercial y requieren un mínimo de <span data-min-jornada>8</span> locales inscritos. La atención individual fuera de jornada se cotiza por separado.</p></details>
+      <details class="pl"><summary><span class="pl__n">6.6</span><span class="pl__t">Relación directa</span><span class="pl__r">CCIET no es parte de la operación.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Toda operación se perfecciona entre Electro Shop Morandin, C.A. y la empresa afiliada. CCIET no factura, no garantiza pagos y no responde por incumplimientos de ninguna de las partes, más allá de su rol de aval en la negociación colectiva.</p></details>
+      <details class="pl"><summary><span class="pl__n">6.7</span><span class="pl__t">Activación</span><span class="pl__r">Mínimo de <span data-min-jornada>40</span> afiliados.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Los precios publicados corresponden a la modalidad de activación por cohorte y requieren un mínimo de <span data-min-jornada>40</span> afiliados inscritos, en cualquier mezcla de paquetes. La atención individual fuera de esta modalidad se cotiza por separado.</p></details>
       <details class="pl"><summary><span class="pl__n">6.8</span><span class="pl__t">Garantía</span><span class="pl__r">De fábrica sobre el equipo, propia sobre la instalación.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Garantía de fábrica sobre los equipos según el plazo de cada producto, y garantía propia sobre la instalación, atendidas bajo el esquema de reposición descrito en la sección 05.</p></details>
       <details class="pl"><summary><span class="pl__n">6.9</span><span class="pl__t">Datos y grabaciones</span><span class="pl__r">El control queda en el comercio.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Electro Shop no solicita la base de datos de afiliados. Las credenciales del sistema pertenecen al comercio. La integración con el centro de monitoreo policial requiere autorización expresa del propietario y se limita a cámaras orientadas a la vía pública.</p></details>
       <details class="pl"><summary><span class="pl__n">6.10</span><span class="pl__t">Vigencia</span><span class="pl__r">Doce meses, con revisión a los seis.</span><span class="pl__c"><svg><use href="#i-chev"/></svg></span></summary><p>Doce meses renovables, con revisión conjunta de resultados a los seis meses. Cualquiera de las partes puede darlo por terminado con treinta días de aviso, sin penalidad.</p></details>
@@ -1486,7 +1651,7 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
       <div class="close__copy">
         <span class="pill pill--cover">Quedamos a la orden</span>
         <h2>Listos para exponerlo ante la Junta</h2>
-        <p>Podemos presentar esta propuesta en la sede de la Cámara o en asamblea de afiliados, y ampliar cualquier sección con el detalle técnico o financiero que se requiera.</p>
+        <p>Podemos presentar esta propuesta en la sede de CCIET o en asamblea de afiliados, y ampliar cualquier sección con el detalle técnico o financiero que se requiera.</p>
         <div class="close__actions">
           <a class="btn btn--onCover" id="waMain" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
           <a class="btn btn--ghostCover" id="mailMain" href="#"><svg><use href="#i-mail"/></svg>Enviar correo</a>
@@ -1495,7 +1660,7 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
       <aside class="contactcard">
         <h4>Contacto</h4>
         <ul>
-          <li><svg><use href="#i-users"/></svg><span><b id="cRep">—</b><small>Electro Shop Morandin</small></span></li>
+          <li><svg><use href="#i-users"/></svg><span><b id="cRep">—</b><small>Electro Shop Morandin, C.A.</small></span></li>
           <li><svg><use href="#i-wa"/></svg><span><b><a id="cTel" href="#" target="_blank" rel="noopener">—</a></b><small>WhatsApp y llamadas</small></span></li>
           <li><svg><use href="#i-mail"/></svg><span><b id="cMail">—</b><small>Correo electrónico</small></span></li>
           <li><svg><use href="#i-net"/></svg><span><b><a id="cWeb" href="#" target="_blank" rel="noopener">—</a></b><small>Sitio web</small></span></li>
@@ -1515,11 +1680,11 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
     <div class="foot__grid">
       <div class="foot__col">
         <div class="foot__marks">
-          <span class="eslogo" role="img" aria-label="Electro Shop Morandin"></span>
+          <span class="eslogo" role="img" aria-label="Electro Shop Morandin, C.A."></span>
           <span class="foot__sep"></span>
           <span class="cclogo" role="img" aria-label="Cámara de Comercio e Industria del Estado Táchira"></span>
         </div>
-        <p>Propuesta de convenio comercial presentada por Electro Shop Morandin a la Cámara de Comercio e Industria del Estado Táchira. Documento de carácter informativo y no vinculante.</p>
+        <p>Propuesta de convenio comercial presentada por Electro Shop Morandin, C.A. a la Cámara de Comercio e Industria del Estado Táchira. Documento de carácter informativo y no vinculante.</p>
         <p style="margin-top:10px"><a data-web href="#" target="_blank" rel="noopener" style="color:var(--brand);font-family:var(--ff-display);font-weight:600">www.electroshopve.com</a></p>
       </div>
       <div class="foot__col">
@@ -1548,9 +1713,101 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 </footer>
 
 <div class="dock">
-  <a class="btn btn--line" href="#financiamiento"><svg><use href="#i-coin"/></svg>Esquemas</a>
+  <a class="btn btn--line" href="#pago"><svg><use href="#i-coin"/></svg>Ver precios</a>
   <a class="btn btn--solid" id="dockWa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Contactar</a>
 </div>
+
+<!-- ══════════════════ COTIZADOR (MODAL) ══════════════════ -->
+<div class="qmodal" id="quoteModal" hidden>
+  <div class="qmodal__overlay" data-qclose></div>
+  <div class="qmodal__box" role="dialog" aria-modal="true" aria-labelledby="qTitle">
+    <div class="qmodal__hd">
+      <h3 id="qTitle">Arma tu cotización</h3>
+      <button type="button" class="qmodal__x" data-qclose aria-label="Cerrar cotizador">&times;</button>
+    </div>
+
+    <div class="qmodal__body">
+      <div class="qpresets">
+        <span class="qpresets__lbl">Empezar desde un paquete</span>
+        <div class="qpresets__btns" id="qPresets"></div>
+      </div>
+
+      <div class="qadd">
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+        <label for="qSearch" class="sr-only">Agregar equipo a la cotización</label>
+        <input id="qSearch" type="search" placeholder="Agregar equipo por nombre o código…" autocomplete="off">
+      </div>
+      <div class="qresults" id="qResults" hidden></div>
+
+      <div class="qsection">
+        <p class="bomlbl">Equipos <span id="qEqCount"></span></p>
+        <p class="qempty" id="qEqEmpty">Aún no has agregado equipos. Busca arriba o parte de un paquete.</p>
+        <ul class="qitems" id="qEqItems"></ul>
+      </div>
+
+      <div class="qsection">
+        <p class="bomlbl">Instalación sugerida</p>
+        <p class="qempty" id="qMoEmpty">Se agrega sola según el equipo elegido.</p>
+        <ul class="qitems qitems--mo" id="qMoAuto"></ul>
+        <ul class="qitems qitems--mo" id="qMoManual"></ul>
+        <div class="qaddmo">
+          <label for="qMoSelect" class="sr-only">Agregar renglón de instalación</label>
+          <select id="qMoSelect"><option value="">+ Agregar otro renglón de instalación…</option></select>
+        </div>
+      </div>
+
+      <div class="qsection">
+        <div class="qfoot__top">
+          <div class="cursw" role="group" aria-label="Moneda">
+            <button type="button" data-cur="USD" aria-pressed="true">USD $</button>
+            <button type="button" data-cur="VES" aria-pressed="false">Bolívares</button>
+          </div>
+          <div class="opts opts--2" id="qModo">
+            <label class="opt"><input type="radio" name="qmodo" value="fin" checked><b>Financiado</b><small>45 días</small></label>
+            <label class="opt"><input type="radio" name="qmodo" value="cont"><b>Contado</b><small id="qDescLbl">−10%</small></label>
+          </div>
+        </div>
+        <p class="qtasa" id="qTasaNota"></p>
+        <div class="qtotals">
+          <div class="qtotals__row"><span>Equipos</span><b id="qOutEquipos">$0</b></div>
+          <div class="qtotals__row" id="qRowAhorro"><span>Descuento de contado</span><b id="qOutAhorro">$0</b></div>
+          <div class="qtotals__row"><span>Instalación</span><b id="qOutMano">$0</b></div>
+          <div class="qtotals__row qtotals__row--hi"><span id="qOutTotalLbl">Total financiado</span><b id="qOutTotal">$0</b></div>
+        </div>
+        <div class="calendario" id="qCalendario" aria-live="polite"></div>
+        <p class="sim__legal" id="qCalNota"></p>
+      </div>
+    </div>
+
+    <div class="qmodal__foot">
+      <a class="btn btn--solid btn--wide" id="qWa" href="#" target="_blank" rel="noopener">
+        <svg><use href="#i-wa"/></svg>Enviar esta cotización por WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ FICHA TÉCNICA DEL PAQUETE (MODAL) ══════════════════ -->
+<div class="qmodal" id="fichaModal" hidden>
+  <div class="qmodal__overlay" data-fclose></div>
+  <div class="qmodal__box qmodal__box--sm" role="dialog" aria-modal="true" aria-labelledby="fichaTitle">
+    <div class="qmodal__hd">
+      <h3 id="fichaTitle">Ficha técnica</h3>
+      <button type="button" class="qmodal__x" data-fclose aria-label="Cerrar ficha técnica">&times;</button>
+    </div>
+    <div class="qmodal__body">
+      <div class="qsection">
+        <p class="bomlbl">Equipos</p>
+        <ul class="bom" id="fichaEq"></ul>
+      </div>
+      <div class="qsection">
+        <p class="bomlbl">Instalación</p>
+        <ul class="bom bom--mo" id="fichaMo"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
 "use strict";
@@ -1560,7 +1817,7 @@ input[type=range]::-moz-range-thumb{ width:21px; height:21px; border-radius:50%;
 const CAT  = ["Accesorios CCTV y Video", "Accesorios Computación y TV", "Baterías de Litio LiFePO4", "Baterías Ácido Plomo y Repuestos", "CCTV Cámaras 1080P / 2MP / 4MP", "CCTV Cámaras 3K / 5MP / 8MP (4K)", "CCTV Cámaras Análogas 720P", "CCTV Cámaras Domo y PTZ", "CCTV Cámaras IP y WiFi", "Cables y Adaptadores", "Control de Acceso, Alarmas y Porteros", "Controladores Solares MPPT y Accesorios", "DVRs Grabadores Digitales", "Discos Duros", "Fuentes y Transformadores", "Inversores Híbridos Solares", "Inversores de Corriente", "NVRs Grabadores de Red IP", "Radiocomunicación", "Routers y Conectividad", "Switches PoE y Red Hikvision", "UPS y Protección Eléctrica"];
 const FAMN = {"cctv": "Videovigilancia", "grab": "Grabación y almacenamiento", "ener": "Energía y respaldo", "solar": "Solar", "red": "Redes y conectividad", "acc": "Control de acceso y alarmas", "radio": "Radiocomunicación", "comp": "Computación y TV"};
 const FAMS = ["cctv", "grab", "ener", "red", "solar", "radio", "acc", "comp"];
-const PROD = [["PTZ-T4225I-D","CAMARA PTZ EXTERIOR HILOOK PTZ-T4225TI-D 2MP 25X ZOOM OPTICO",7,180,432.0,"cctv"],["DS-2AE4215TI-D","CAMARA PTZ EXTERIOR HIKVISION DS-2AE4215TI-D 2MP 15X ZOOM OPTICO",7,180,400.0,"cctv"],["PTZ-T4215I-D","CAMARA PTZ EXTERIOR HILOOK PTZ-T4215I-D 2MP 15X ZOOM OPTICO",7,180,256.0,"cctv"],["DS-2DE2A404IW-DE3","CAMARA MINI PTZ IP HIKVISION DS-2DE2A404IW-DE3 4MP 4X DARKFIGHTER",8,180,256.0,"cctv"],["DS-2DE2A204IW-DE3","CAMARA MINI PTZ IP HIKVISION DS-2DE2A204IW-DE3 2MP 4X DARKFIGHTER",8,180,240.0,"cctv"],["DS-2CD1643G0-IZ","CAMARA VARIFOCAL IP MOTORIZADA HIKVISION DS-2CD1643G0-IZ (2.8-12MM) 4MP",8,180,224.0,"cctv"],["HDMI-RJ200USB","EXTENDER CONVERTIDOR HDMI A RJ45 200M CON USB KVM (PAR)",0,30,192.0,"cctv"],["DS-2CD1183G0-IUF","CAMARA DOMO IP HIKVISION DS-2CD1183G0-IUF 2.8MM 8MP 4K WDR 120DB MICROFONO SD",8,180,176.0,"cctv"],["2CD1063G2-LIUF","CAMARA EXTERIOR IP HIKVISION DS-2CD1063G2-LIUF 2.8MM 6MP HIBRIDO SD AUDIO",8,180,128.0,"cctv"],["DS-2CD1043G0-I","CAMARA EXTERIOR IP HIKVISION DS-2CD1043G0-I 2.8MM 4MP POE WDR 120DB",8,180,112.0,"cctv"],["2CD1343G2-LIU","CAMARA DOMO IP HIKVISION DS-2CD1343G2-LIU 2.8MM 4MP HIBRIDO AUDIO",8,180,112.0,"cctv"],["2CD1043G2-LIU","CAMARA EXTERIOR IP HIKVISION DS-2CD1043G2-LIU 2.8MM 4MP HIBRIDO",8,180,112.0,"cctv"],["DS-2CD1143G0-I","CAMARA DOMO IP HIKVISION DS-2CD1143G0-I 2.8MM 4MP ANTIVANDALICA IK10",8,180,112.0,"cctv"],["DS-2CD1127G0","CAMARA DOMO IP HIKVISION DS-2CD1127G0 2.8MM 2MP COLORVU",8,180,104.0,"cctv"],["HDMI-RJ60USB","EXTENDER CONVERTIDOR HDMI A RJ45 60M CON USB KVM (PAR)",0,30,96.0,"cctv"],["DS-2CD1023G0E-I","CAMARA EXTERIOR IP HIKVISION DS-2CD1023G0E-I 2.8MM 2MP POE IP67",8,180,88.0,"cctv"],["2CD1323G2-LIU","CAMARA DOMO IP HIKVISION DS-2CD1323G2-LIU 2.8MM 2MP HIBRIDO AUDIO",8,180,88.0,"cctv"],["2CE16U1T-ITPF2.8mm","CAMARA EXTERIOR BULLET PLASTICA HIKVISION DS-2CE16U1T-ITPF 2.8MM 8MP 4K",5,180,80.0,"cctv"],["2CE76U1T-ITMF2.8","CAMARA DOMO METALICA HIKVISION DS-2CE76U1T-ITMF 2.8MM 8MP 4K",5,180,78.4,"cctv"],["DS-2CE72DF3T-F","CAMARA DOMO METALICA HIKVISION DS-2CE72DF3T-F 2.8MM 2MP COLORVU 40M LUZ BLANCA",7,180,72.0,"cctv"],["2CE76U1T-ITPF2.8","CAMARA DOMO PLASTICA HIKVISION DS-2CE76U1T-ITPF 2.8MM 8MP 4K",5,180,72.0,"cctv"],["2CV1F43G2-LIDWF","CAMARA DOMO WIFI HIKVISION 4MP",8,90,68.8,"cctv"],["2CE16U1T-ITF2.8mm","CAMARA EXTERIOR BULLET METALICA HIKVISION DS-2CE16U1T-ITF 2.8MM 8MP 4K",5,180,64.0,"cctv"],["2CE5AD0T-VPIT3F","CAMARA DOMO VARIFOCAL HIKVISION 2CE5AD0T-VPIT3F",4,180,60.8,"cctv"],["2CV1043G2-LIDWF","CAMARA EXTERIOR BULLET WIFI HIKVISION 4MP",8,90,60.8,"cctv"],["2CE16D0T-VFIR3F","CAMARA VARIFOCAL BULLET HIKVISION DS-2CE16D0T-VFIR3F (2.8-12MM) 1080P",4,180,57.6,"cctv"],["THC-T320-VF","CAMARA DOMO VARIFOCAL HILOOK THC-T320-VF 2.8-12MM 2MP",7,180,57.6,"cctv"],["2CV1F23G2-LIDWF","CAMARA DOMO WIFI HIKVISION 2MP",8,90,52.8,"cctv"],["2CE10DF3T-PF2.8mm","CAMARA EXTERIOR BULLET HIKVISION DS-2CE10DF3T-PF 2.8MM 2MP COLORVU 130DB WDR",4,180,51.2,"cctv"],["2CE70DF3T-PFS","CAMARA DOMO PLASTICA HIKVISION DS-2CE70DF3T-PFS 2.8MM 2MP MICROFONO COLORVU",7,180,51.2,"cctv"],["DS-2CE70DF0T-MF","CAMARA DOMO METALICA HIKVISION DS-2CE70DF0T-MF 2.8MM 2MP COLORVU IP67",7,180,48.0,"cctv"],["2CE78D0T-IT3FS2.8mm","CAMARA DOMO HIKVISION DS-2CE78D0T-IT3FS 2.8MM 2MP MICROFONO 40M IR",7,180,48.0,"cctv"],["2CE76K0T-LMFS","CAMARA DOMO ANTIVANDALICA HIKVISION DS-2CE76K0T-LMFS 3K HIBRIDO AUDIO",5,180,46.4,"cctv"],["DS-2CE16K0T-LPFS","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16K0T-LPFS 3K HIBRIDO AUDIO",5,180,43.2,"cctv"],["DS-2CE16K0T-LPTS","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16K0T-LPTS 3K AUDIO",5,180,43.2,"cctv"],["2CE76H0T-ITPFS2.8","CAMARA DOMO PLASTICA HIKVISION DS-2CE76H0T-ITPFS 2.8MM 5MP MICROFONO",5,180,43.2,"cctv"],["2CE16D0T-LXTS","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16D0T-LXTS 2.8MM 2MP AUDIO",4,180,41.6,"cctv"],["2CE10DF0T-PF2.8mm","CAMARA EXTERIOR BULLET HIKVISION DS-2CE10DF0T-PF 2.8MM 2MP COLORVU PLASTICA",4,180,41.6,"cctv"],["2CE70DF0T-LPFS","CAMARA DOMO HIKVISION DS-2CE70DF0T-LPFS 2.8MM 2MP COLORVU AUDIO",7,180,41.6,"cctv"],["2CE76K0T-LPFS","CAMARA DOMO HIKVISION DS-2CE76K0T-LPFS 3K HIBRIDO AUDIO",5,180,41.6,"cctv"],["DS-7104NI-S1/W","MINI NVR/DVS WIFI HIKVISION 4 CANALES",8,90,41.6,"cctv"],["2CE10DF0T-F2.8mm","CAMARA EXTERIOR BULLET METALICA HIKVISION DS-2CE10DF0T-F 2.8MM 2MP COLORVU",4,180,40.0,"cctv"],["2CE70DF0T-PF2.8mm","CAMARA DOMO HIKVISION DS-2CE70DF0T-PF 2.8MM 2MP COLORVU",7,180,40.0,"cctv"],["2CE76D0T-ITMFS2.8mm","CAMARA DOMO METALICA HIKVISION DS-2CE76D0T-ITMFS 2.8MM 2MP MICROFONO EXIR 2.0",7,180,40.0,"cctv"],["2CE16H0T-ITF2.8","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16H0T-ITF 2.8MM 5MP IP67",5,180,40.0,"cctv"],["2CE16H0T-ITPFS2.8","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16H0T-ITPFS 2.8MM 5MP MICROFONO",5,180,40.0,"cctv"],["2CE76H0T-ITMF2.8","CAMARA DOMO METALICA HIKVISION DS-2CE76H0T-ITMF 2.8MM 5MP IP68",5,180,40.0,"cctv"],["IPC-T221H-C","CAMARA DOMO IP HILOOK IPC-T221H-C 2.8MM 2MP",8,180,40.0,"cctv"],["2CE76D0T-ITPFS","CAMARA DOMO PLASTICA HIKVISION DS-2CE76D0T-ITPFS 2.8MM 2MP MICROFONO",7,180,38.4,"cctv"],["2CE16D0T-LPFS","CAMARA EXTERIOR HIBRIDA BULLET HIKVISION DS-2CE16D0T-LPFS 2.8MM 1080P",4,180,36.8,"cctv"],["2CE16D0T-LPTS","CAMARA EXTERIOR HIBRIDA BULLET HIKVISION DS-2CE16D0T-LPTS 2.8MM",4,180,36.8,"cctv"],["2CE76D0T-LPFS","CAMARA DOMO HIBRIDO HIKVISION DS-2CE76D0T-LPFS 2.8MM 1080P",7,180,36.8,"cctv"],["IPC-B121H-C","CAMARA EXTERIOR IP HILOOK IPC-B121H-C 2.8MM 2MP",8,180,36.8,"cctv"],["THC-B129-P","CAMARA EXTERIOR BULLET HILOOK THC-B129-P 2.8MM 2MP COLORVU",4,180,36.0,"cctv"],["2CE16D0T-ITFS2.8","CAMARA EXTERIOR AUDIO COAXIAL HIKVISION DS-2CE16D0T-ITFS 2.8MM 2MP IP67",4,180,35.2,"cctv"],["THC-B150-P2.8","CAMARA EXTERIOR BULLET HILOOK THC-B150-P 2.8MM 5MP IP67",5,180,35.2,"cctv"],["THC-T150-P","CAMARA DOMO HILOOK THC-T150-P 2.8MM 5MP",5,180,33.6,"cctv"],["THC-T129-P","CAMARA DOMO HILOOK THC-T129-P 2.8MM 2MP COLORVU",7,180,32.8,"cctv"],["2CE16D0T-IRF2.8","CAMARA EXTERIOR BULLET METALICA HIKVISION DS-2CE16D0T-IRF 2.8MM 1080P",4,180,32.0,"cctv"],["THC-B127-LPS","CAMARA EXTERIOR BULLET HILOOK THC-B127-LPS 2.8MM 2MP HIBRIDO AUDIO",4,180,32.0,"cctv"],["2CE16D0T-ITPFS2.8","CAMARA EXTERIOR AUDIO COAXIAL HIKVISION DS-2CE16D0T-ITPFS 2.8MM 2MP IP67",4,180,32.0,"cctv"],["THC-B120-PS","CAMARA EXTERIOR BULLET HILOOK THC-B120-PS 2.8MM 2MP",4,180,30.4,"cctv"],["THC-T127-LPS","CAMARA DOMO HILOOK THC-T127-LPS 2.8MM 2MP HIBRIDO AUDIO",7,180,29.6,"cctv"],["2CE56D0T-IRMMF2.8","CAMARA DOMO METALICA ANTIVANDALICA HIKVISION DS-2CE56D0T-IRMMF 2.8MM 1080P",7,180,28.8,"cctv"],["DS-2CE70DF3T-MF","CAMARA DOMO METALICA HIKVISION DS-2CE70DF3T-MF 2.8MM 2MP COLORVU MICROFONO",7,180,28.8,"cctv"],["THC-T120-PS2.8","CAMARA DOMO HILOOK THC-T120-PS 2.8MM 2MP",7,180,27.2,"cctv"],["HDMI-RJ60","EXTENDER CONVERTIDOR HDMI A RJ45 60M (PAR)",0,30,25.6,"cctv"],["DS-2CE70DF3T-PF","CAMARA DOMO PLASTICA HIKVISION DS-2CE70DF3T-PF 2.8MM 2MP COLORVU MICROFONO",7,180,25.6,"cctv"],["2CE16D0T-IRPF2.8","CAMARA EXTERIOR BULLET PLASTICA HIKVISION DS-2CE16D0T-IRPF 2.8MM 1080P",4,180,23.2,"cctv"],["2CE56D0T-IRPF2.8","CAMARA DOMO PLASTICA HIKVISION DS-2CE56D0T-IRPF 2.8MM 1080P",7,180,23.2,"cctv"],["THC-B120-P2.8","CAMARA EXTERIOR BULLET HILOOK THC-B120-P 2.8MM 2MP",4,180,22.4,"cctv"],["THC-B120-PC2.8","CAMARA EXTERIOR BULLET HILOOK THC-B120-PC 2.8MM 2MP",4,180,21.6,"cctv"],["THC-T120-P2.8","CAMARA DOMO HILOOK THC-T120-P 2.8MM 2MP PLASTICA",7,180,20.8,"cctv"],["2CE56C0T-IRMF2.8","CAMARA DOMO METALICA ANTIVANDALICA HIKVISION DS-2CE56C0T-IRMF 2.8MM 720P",6,180,20.0,"cctv"],["THC-T120-PC","CAMARA DOMO HILOOK THC-T120-PC 2.8MM 2MP",7,180,20.0,"cctv"],["KVM4","KVM VGA 4 PUERTOS METALICO",0,30,19.2,"cctv"],["SWITCH4H","SWITCH HDMI 4 PUERTOS METALICO",0,30,19.2,"cctv"],["2CE16C0T-IRPF2.8","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16C0T-IRPF 2.8MM 720P 4 EN 1",6,180,17.6,"cctv"],["SIRENA30","SIRENA 30W BLANCA 118DB 2 TONOS 12VDC",0,30,16.0,"cctv"],["2CE56C0T-IRPF2.8","CAMARA DOMO HIKVISION DS-2CE56C0T-IRPF 2.8MM 720P 4 EN 1",6,180,16.0,"cctv"],["THC-T110-P2.8","CAMARA DOMO HILOOK THC-T110-P 2.8MM 720P 4 EN 1",6,180,13.6,"cctv"],["SWITCH4","SWITCH VGA 4 PUERTOS METALICO",0,30,12.8,"cctv"],["SWITCH2H","SWITCH HDMI 2 PUERTOS METALICO",0,30,12.8,"cctv"],["SWITCH2","SWITCH VGA 2 PUERTOS METALICO",0,30,11.2,"cctv"],["KVM2H","KVM HDMI 3 PUERTOS METALICO",0,30,11.2,"cctv"],["KVM2","KVM VGA 2 PUERTOS METALICO",0,30,8.0,"cctv"],["HDMI-RJ30M","EXTENDER CONVERTIDOR HDMI A RJ45 30M (PAR)",0,30,8.0,"cctv"],["SIRENA15","SIRENA 15W NEGRA 110DB 2 TONOS 12VDC",0,30,7.2,"cctv"],["VID-3EN1","VIDEO BALUN RJ45 3 EN 1",0,30,5.6,"cctv"],["VID-2EN1","VIDEO BALUN RJ45 2 EN 1",0,30,4.8,"cctv"],["DIVISOR-8","CABLE DIVISOR DE ENERGIA PARA 8 CAMARAS",0,30,4.8,"cctv"],["DIVISOR-4","CABLE DIVISOR DE ENERGIA PARA 4 CAMARAS",0,30,3.2,"cctv"],["VID-AHD","VIDEO BALUN AHD (PAR)",0,30,2.4,"cctv"],["DIVISOR-2","CABLE DIVISOR DE ENERGIA PARA 2 CAMARAS",0,30,1.6,"cctv"],["H-Y-M","PAR DE CONECTOR DC MACHO Y HEMBRA",0,30,0.4,"cctv"],["7332HUHI-K4","DVR 32 CANALES HIKVISION DS-7332HUHI-K4 (SOPORTA 8MP) RAID 4 HDD",12,180,1312.0,"grab"],["7332HUHI-M4/S","DVR 32 CANALES HIKVISION DS-7332HUHI-M4/S (SOPORTA 8MP) 4 HDD",12,180,1280.0,"grab"],["DISCO-10TB","DISCO DURO 10TB 100% NUEVO",13,90,1008.0,"grab"],["DISCO-8TB","DISCO DURO 8TB 100% NUEVO",13,90,960.0,"grab"],["DS-7732NXI-K4/16P","NVR 32 CANALES HIKVISION DS-7732NXI-K4/16P ACUSENSE 16 POE",17,180,768.0,"grab"],["DS-7732NI-K4/16P","NVR 32 CANALES HIKVISION DS-7732NI-K4/16P 16 POE 4 SATA",17,180,768.0,"grab"],["7216HUHI-M2/X/4A+16/4ALM","DVR 16 CANALES HIKVISION IDS-7216HUHI-M2/X/4A+16/4ALM",12,180,624.0,"grab"],["DISCO-6TB","DISCO DURO 6TB 100% NUEVO",13,90,528.0,"grab"],["DS-7732NXI-K4","NVR 32 CANALES HIKVISION DS-7732NXI-K4 ACUSENSE 4 SATA",17,180,512.0,"grab"],["7232HQHI-M2/XT","DVR 32 CANALES HIKVISION DS-7232HQHI-M2XT 1080P (SOPORTA 4MP)",12,180,480.0,"grab"],["7216HUHI-M2/S","DVR 16 CANALES HIKVISION DS-7216HUHI-M2/S (SOPORTA 8MP)",12,180,480.0,"grab"],["DS-7616NI-I2/16P","NVR 16 CANALES HIKVISION DS-7616NI-I2/16P 16 POE ALARM",17,180,480.0,"grab"],["DS-7732NI-K4","NVR 32 CANALES HIKVISION DS-7732NI-K4 4 SATA HASTA 10TB",17,180,480.0,"grab"],["DS-7232HQHI-M2/S","DVR 32 CANALES HIKVISION IDS-7232HQHI-M2/S ACUSENSE",12,180,464.0,"grab"],["DS-7616NXI-K2/16P","NVR 16 CANALES HIKVISION DS-7616NXI-K2/16P ACUSENSE 16 POE",17,180,448.0,"grab"],["7232HQHI-K2","DVR 32 CANALES HIKVISION DS-7232HQHI-K2 1080P (SOPORTA 4MP)",12,180,416.0,"grab"],["DISCO-4TB","DISCO DURO 4TB 100% NUEVO",13,90,384.0,"grab"],["7208HUHI-M1/XT/4A+8/4ALM","DVR 8 CANALES HIKVISION IDS-7208HUHI-M1/XT/4A+8/4ALM",12,180,384.0,"grab"],["7232HGHI-M2","DVR 32 CANALES HIKVISION DS-7232HGHI-M2",12,180,368.0,"grab"],["DS-7616NI-Q2/16P","NVR 16 CANALES HIKVISION DS-7616NI-Q2/16P CON 16 PUERTOS POE",17,180,352.0,"grab"],["7216HQHI-M1/XT","DVR 16 CANALES HIKVISION DS-7216HQHI-M1/XT (SOPORTA 4MP)",12,180,288.0,"grab"],["7216HQHI-M1/FA","DVR 16 CANALES HIKVISION DS-7216HQHI-M1/FA ACUSENSE RECONOCIMIENTO FACIAL",12,180,288.0,"grab"],["DISCO-2TB","DISCO DURO 2TB 100% NUEVO",13,90,280.0,"grab"],["7208HUHI-M1/S","DVR 8 CANALES HIKVISION DS-7208HUHI-M1/S ACUSENSE (SOPORTA 8MP)",12,180,272.0,"grab"],["7208HUHI-K2/P","DVR 8 CANALES HIKVISION DS-7208HUHI-K2/P (SOPORTA 8MP)",12,180,256.0,"grab"],["DS-7608NXI-K1/8P","NVR 8 CANALES HIKVISION DS-7608NXI-K1/8P ACUSENSE 8 POE",17,180,256.0,"grab"],["DS-7608NI-Q2/8P","NVR 8 CANALES HIKVISION DS-7608NI-Q2/8P 8 PUERTOS POE",17,180,224.0,"grab"],["DS-7616NXI-K2","NVR 16 CANALES HIKVISION DS-7616NXI-K2 ACUSENSE 2 SATA",17,180,216.0,"grab"],["DS-7616NI-K2","NVR 16 CANALES HIKVISION DS-7616NI-K2 2 SATA ALARM I/O",17,180,208.0,"grab"],["7116HQHI-M1/S","DVR 16 CANALES HIKVISION DS-7116HQHI-M1/S 1080P (SOPORTA 4MP)",12,180,200.0,"grab"],["DS-7616NI-Q2","NVR 16 CANALES HIKVISION DS-7616NI-Q2 HASTA 8MP 4K 2 SATA",17,180,176.0,"grab"],["7208HQHI-M1/XT","DVR 8 CANALES HIKVISION DS-7208HQHI-M1/XT (SOPORTA 4MP)",12,180,168.0,"grab"],["7204HUHI-M1/S","DVR 4 CANALES HIKVISION DS-7204HUHI-M1/S (SOPORTA 8MP)",12,180,160.0,"grab"],["DS-7108NI-Q1/8P","NVR 8 CANALES HIKVISION DS-7108NI-Q1/8P HASTA 8MP 4K CON 8 PUERTOS POE",17,180,160.0,"grab"],["NVR-216MH-C","NVR 16 CANALES HILOOK NVR-216MH-C HASTA 8MP 4K",17,180,160.0,"grab"],["DS-E08HGHI-B","DVR MINI 8 CANALES HIKVISION DS-E08HGHI-B SSD INTERNO 480GB eSSD",12,180,152.0,"grab"],["7116HGHI-M1","DVR 16 CANALES HIKVISION DS-7116HGHI-M1 (SOPORTA 1080P)",12,180,136.0,"grab"],["7108HQHI-M1/S","DVR 8 CANALES HIKVISION DS-7108HQHI-M1/S 1080P (SOPORTA 4MP)",12,180,132.8,"grab"],["7216HGHI-M1","DVR 16 CANALES HIKVISION DS-7216HGHI-M1 (SOPORTA 1080P / 5MP IP)",12,180,128.0,"grab"],["7204HQHI-M1/XT","DVR 4 CANALES HIKVISION DS-7204HQHI-M1/XT (SOPORTA 4MP)",12,180,128.0,"grab"],["DS-7608NI-Q1","NVR 8 CANALES HIKVISION DS-7608NI-Q1 HASTA 8MP 4K 1 SATA",17,180,128.0,"grab"],["DISCO-1TB","DISCO DURO 1TB 100% NUEVO",13,90,105.6,"grab"],["7208HGHI-M1/T","DVR 8 CANALES HIKVISION DS-7208HGHI-M1/T (SOPORTA 1080P)",12,180,104.0,"grab"],["7108HGHI-M1/T","DVR 8 CANALES HIKVISION DS-7108HGHI-M1/T (SOPORTA 1080P)",12,180,88.0,"grab"],["7104HQHI-M1/S","DVR 4 CANALES HIKVISION DS-7104HQHI-M1/S 1080P (SOPORTA 4MP)",12,180,86.4,"grab"],["7208HGHI-M1","DVR 8 CANALES HIKVISION DS-7208HGHI-M1 (SOPORTA 1080P)",12,180,76.8,"grab"],["7108HGHI-M1","DVR 8 CANALES HIKVISION DS-7108HGHI-M1 (SOPORTA 1080P)",12,180,76.8,"grab"],["7104HGHI-M1/T","DVR 4 CANALES HIKVISION DS-7104HGHI-M1/T (SOPORTA 1080P)",12,180,67.2,"grab"],["7204HGHI-K1","DVR 4 CANALES HIKVISION DS-7204HGHI-K1 (SOPORTA 1080P)",12,180,60.8,"grab"],["7208HGHI-F1/N","DVR 8 CANALES HIKVISION DS-7208HGHI-F1/N (SOPORTA 1080P)",12,180,60.8,"grab"],["7104HGHI-M1","DVR 4 CANALES HIKVISION DS-7104HGHI-M1 (SOPORTA 1080P)",12,180,51.2,"grab"],["7104HGHI-K1","DVR 4 CANALES HIKVISION DS-7104HGHI-K1 (SOPORTA 1080P)",12,180,51.2,"grab"],["7204HGHI-F1","DVR 4 CANALES HIKVISION DS-7204HGHI-F1 (SOPORTA 1080P)",12,180,40.0,"grab"],["LP16-48300","BATERIA DE LITIO MUST LP16-48300 (48V 300AH)",2,365,4000.0,"ener"],["INF-LFP-48300","BATERIA DE LITIO INFINI SOLAR INF-LFP-48300 (48V 300AH)",2,365,3760.0,"ener"],["LP16-48200","BATERIA DE LITIO MUST LP16-48200 (48V 200AH)",2,365,3184.0,"ener"],["LP16-24200","BATERIA DE LITIO MUST LP16-24200 (24V 200AH)",2,365,1920.0,"ener"],["LP16-48100","BATERIA DE LITIO MUST LP16-48100 (48V 100AH)",2,365,1760.0,"ener"],["HBP18-20240LV","INVERSOR PORTATIL TODO EN UNO MUST 2KW BATERIA 2560WH",16,180,1680.0,"ener"],["INF-LFP-48100","BATERIA DE LITIO INFINI SOLAR INF-LFP-48100 (48V 100AH)",2,365,1600.0,"ener"],["LP15-24200","BATERIA DE LITIO MUST LP15-24200 (24V 200AH)",2,365,1520.0,"ener"],["LP16-24100","BATERIA DE LITIO MUST LP16-24100 (24V 100AH)",2,365,1136.0,"ener"],["HBP18-10120LV","INVERSOR PORTATIL TODO EN UNO MUST 1KW BATERIA 1280WH",16,180,992.0,"ener"],["LP15-12200","BATERIA DE LITIO MUST LP15-12200 (12V 200AH)",2,365,816.0,"ener"],["LP15-24100","BATERIA DE LITIO MUST LP15-24100 (24V 100AH)",2,365,816.0,"ener"],["HBP18-1012LV-HG8","INVERSOR PORTATIL TODO EN UNO MUST 1KW BATERIA 960WH",16,180,800.0,"ener"],["LP15-12100","BATERIA DE LITIO MUST LP15-12100 (12V 100AH)",2,365,464.0,"ener"],["EP30-1524LV2","INVERSOR POWER HOUSE MUST EP30-1524LV2 1.5KW 24V",16,180,432.0,"ener"],["V-3000-110","UPS BEGPROD 3000VA 1800W 110V 8 TOMAS 4 BATERIA 9A",21,180,320.0,"ener"],["V-3000-220","UPS BEGPROD 3000VA 1800W 220V 4 BATERIA 9A",21,180,320.0,"ener"],["EP30-1012LV2","INVERSOR POWER HOUSE MUST EP30-1012LV2 1KW 12V",16,180,320.0,"ener"],["PI15-2024LV","INVERSOR MUST ONDA PURA 2KW 24V A 110V",16,180,248.0,"ener"],["DS-UPS2000-X","UPS 2000VA HIKVISION DS-UPS2000-R/X",21,90,240.0,"ener"],["PI15-2012LV","INVERSOR MUST ONDA PURA 2KW 12V A 110V",16,180,240.0,"ener"],["V-2000-220","UPS BEGPROD 2000VA 1200W 220V 2 BATERIA 9A",21,180,208.0,"ener"],["PI15-1012LV","INVERSOR MUST ONDA PURA 1KW (1000W) 12V A 110V",16,180,184.0,"ener"],["STE2000","UPS BEGPROD 2000VA 1200W 6 TOMAS 2 BATERIA 9A",21,180,176.0,"ener"],["STE1500","UPS BEGPROD 1500VA 900W 6 TOMAS 2 BATERIA 7A",21,180,144.0,"ener"],["PI15-0612LV","INVERSOR MUST ONDA PURA 600W 12V A 110V",16,180,128.0,"ener"],["VR-330LI","UPS BEGPROD 330W BATERIA LITIO 28800MAH/92WH",21,180,120.0,"ener"],["NPS2048","MINI UPS BEGPROD NPS 2048 100W 24000MAH",21,180,96.0,"ener"],["BK1000B","UPS BEGPROD 1000VA 650W 4 TOMAS BATERIA 9A",21,180,76.8,"ener"],["BK1000B7","UPS BEGPROD 1000VA 500W 4 TOMAS BATERIA 7A",21,180,72.0,"ener"],["DS-UPS600-X","UPS 600VA HIKVISION DS-UPS600-X",21,90,64.0,"ener"],["FC12-18","BATERIA 12V 18AMP MCA (18x7.5x16.5 cm)",3,180,62.4,"ener"],["FTC30A18","FUENTE CENTRALIZADA 12V 30A 18 PUERTOS",14,30,48.0,"ener"],["ECOP18-12000M/1000M","MINI UPS BEGPROD ECO P18 18W 12000MAH 1000M-24V",21,180,41.6,"ener"],["FC12-12","BATERIA 12V 12AMP MCA (15x9.5x9.5 cm)",3,180,40.0,"ener"],["ECOP18-12000M","MINI UPS BEGPROD ECO P18 18W 12000MAH (5V 9V 12V POE 24V USB)",21,180,38.4,"ener"],["DS-UPS18D-Z","MINI UPS HIKVISION 18W 8000MAH",21,180,36.8,"ener"],["FTC20A9","FUENTE CENTRALIZADA 12V 20A 9 PUERTOS",14,30,36.8,"ener"],["FC12-9","BATERIA 12V 9AMP MCA (15x10x7 cm)",3,180,28.8,"ener"],["FT30A","FUENTE CONMUTADA 12V 30A",14,30,28.8,"ener"],["FT20A","FUENTE CONMUTADA 12V 20A",14,30,24.0,"ener"],["FC12-7","BATERIA 12V 7AMP MCA (15x10x7 cm)",3,180,22.4,"ener"],["FT15A","FUENTE CONMUTADA 12V 15A",14,30,19.2,"ener"],["FC12-4.5","BATERIA 12V 4.5AMP MCA (9x10x7 cm)",3,180,17.6,"ener"],["12V10A","TRANSFORMADOR 12V 10A",14,30,16.0,"ener"],["FT10A","FUENTE CONMUTADA 12V 10A",14,30,16.0,"ener"],["BT-32700/6000AX2","BATERIA LITIO 32700 6000MAHX2 PARA MINI UPS ECOP18",3,30,12.8,"ener"],["FC6-4.5","BATERIA 6V 4.5AMP MCA (7x4.5x10 cm)",3,180,11.2,"ener"],["12V5A","TRANSFORMADOR 12V 5A",14,30,7.2,"ener"],["12V3A","TRANSFORMADOR 12V 3A",14,30,5.6,"ener"],["12V2A","TRANSFORMADOR 12V 2A",14,30,3.2,"ener"],["DH-PFM320-010US","TRANSFORMADOR DAHUA 12V 1A",14,30,2.72,"ener"],["12V1A","TRANSFORMADOR 12V 1A",14,30,2.08,"ener"],["DS-3E1526P-EI/M","SWITCH POE HIKVISION DS-3E1526P-EI/M 24 PUERTOS GIGABIT",20,180,432.0,"red"],["DS-3E0526P-E/M","SWITCH POE HIKVISION DS-3E0526P-E/M 24 PUERTOS GIGABIT + 2 SFP RACKEABLE",20,180,408.0,"red"],["DS-3E1518P-EI/M","SWITCH POE HIKVISION DS-3E1518P-EI/M 16 PUERTOS GIGABIT",20,180,320.0,"red"],["DS-3E0518P-E/M","SWITCH POE HIKVISION DS-3E0518P-E/M 16 PUERTOS GIGABIT + 2 SFP RACKEABLE",20,180,304.0,"red"],["DS-3E0524-E","SWITCH HIKVISION DS-3E0524-E 24 PUERTOS GIGABIT",20,180,136.0,"red"],["DS-3E0516-E","SWITCH HIKVISION DS-3E0516-E 16 PUERTOS GIGABIT",20,180,112.0,"red"],["DH-PFS3006-4GT-60-V2","SWITCH DAHUA 4 PTOS POE GIGABIT",19,365,88.0,"red"],["DH-MAX18","ROUTER DAHUA DH-MAX18 DUAL BAND 4 ANTENA",19,365,68.8,"red"],["DS-3E0109P-E/M","SWITCH POE HIKVISION DS-3E0109P-E/M 8 PUERTOS POE",20,180,65.6,"red"],["A10/AC2600","ROUTER TP-LINK ARCHER A10 AC2600 GIGABIT MU-MIMO DUAL CORE 1.4GHZ",19,90,64.0,"red"],["DS-3E1505P-EI/M","SWITCH POE HIKVISION DS-3E1505P-EI/M 5 PUERTOS GIGABIT",20,180,64.0,"red"],["DH-NC1800","ADAPTADOR USB WIFI DAHUA DH-NC1800",19,365,41.6,"red"],["DH-AX18","ROUTER DAHUA DH-AX18 AX1800 DUAL BAND 4 ANTENA",19,365,40.0,"red"],["DS-3E0505-E","SWITCH HIKVISION DS-3E0505-E 5 PUERTOS GIGABIT",20,180,36.8,"red"],["DS-3E0508D-E","SWITCH HIKVISION DS-3E0508D-E 8 PUERTOS GIGABIT",20,180,35.2,"red"],["VGA20","CABLE VGA 20 METROS ALTA CALIDAD 1080P",9,30,28.8,"red"],["HDMI15A","CABLE HDMI 15 METROS ORIGINAL 4K",9,30,20.8,"red"],["DH-N3","ROUTER DAHUA DH-N3 N300 2 ANTENA",19,365,17.6,"red"],["VGA10","CABLE VGA 10 METROS ALTA CALIDAD 1080P",9,30,17.6,"red"],["HDMI10A","CABLE HDMI 10 METROS ORIGINAL 4K",9,30,12.8,"red"],["DS-3E0108D-O","SWITCH HIKVISION DS-3E0108D-O 8 PUERTOS 10/100",20,180,12.0,"red"],["DS-3E0105D-O","SWITCH HIKVISION DS-3E0105D-O 5 PUERTOS 10/100",20,180,9.6,"red"],["HDMI5","CABLE HDMI 5 METROS",9,30,5.6,"red"],["VGA5","CABLE VGA 5 METROS",9,30,4.8,"red"],["HDMI3","CABLE HDMI 3 METROS",9,30,4.0,"red"],["VGA3","CABLE VGA 3 METROS",9,30,3.2,"red"],["HDMI1.5","CABLE HDMI 1.5 METROS",9,30,2.4,"red"],["VGA1.5","CABLE VGA 1.5 METROS",9,30,2.4,"red"],["DCMM0.5M","CABLE DC MACHO A MACHO 0.5 METROS",9,30,1.6,"red"],["PH11-10KL2US-","INVERSOR HIBRIDO MUST PH11-10KL2-US 10KW 48V 220V IP66",15,365,3840.0,"solar"],["PV39-12048TLV","INVERSOR HIBRIDO MUST PV39-12048TLV 12KW 48V 220V",15,365,2880.0,"solar"],["PV33-6048TLV","INVERSOR HIBRIDO MUST PV33-6048TLV 6KW 48V 110V/220V",15,365,1088.0,"solar"],["VP330-6048TLV","INVERSOR HIBRIDO INFINI SOLAR 6KW 48V A 220V",15,365,1088.0,"solar"],["PV18-3024LV","INVERSOR HIBRIDO MUST PV18-3024LV 3KW 24V A 110V MPPT 100A",15,365,752.0,"solar"],["PV33-3024TLV","INVERSOR HIBRIDO MUST PV33-3024TLV 3KW 24V 110V/220V",15,365,752.0,"solar"],["VP330-3024TLV","INVERSOR HIBRIDO INFINI SOLAR 3KW 24V A 220V",15,365,752.0,"solar"],["PV29-3024LHP","INVERSOR HIBRIDO MUST PV29-3024LHP 3KW 24V A 110V MPPT 80A",15,365,720.0,"solar"],["PV18-1012LV","INVERSOR HIBRIDO MUST PV18-1012LV 1KW 12V A 110V MPPT 60A",15,365,400.0,"solar"],["PV15-1524LV","INVERSOR HIBRIDO MUST PV15-1524LV 1.5KW 24V A 110V",15,365,400.0,"solar"],["PC18-10025F","CONTROLADOR SOLAR MUST MPPT PC1800 100A (12V/24V/48V)",11,180,272.0,"solar"],["PC18-8015F","CONTROLADOR SOLAR MUST MPPT PC1800 80A (12V/24V/48V)",11,180,240.0,"solar"],["PC18-8025F","CONTROLADOR SOLAR MUST MPPT PC1800 80A (12V/24V/48V)",11,180,240.0,"solar"],["PC18-6015F","CONTROLADOR SOLAR MUST MPPT PC1800 60A (12V/24V/48V)",11,180,216.0,"solar"],["PC18-6025F","CONTROLADOR SOLAR MUST MPPT PC1800 60A (12V/24V/48V)",11,180,216.0,"solar"],["WIFI-MUST","MODULO WIFI DE INVERSOR MUST (USB)",11,365,40.0,"solar"],["WIFI-PRO25","MODULO WIFI DE INVERSOR MUST PRO-25 (USB)",11,365,40.0,"solar"],["RAD-UV82","RADIO TRANSMISOR BAOFENG UV-82",18,30,36.8,"radio"],["RAD-UV6D","RADIO TRANSMISOR BAOFENG UV-6D",18,30,28.8,"radio"],["RAD-UV8D","RADIO TRANSMISOR BAOFENG UV-8D",18,30,28.8,"radio"],["BF-888SX2","RADIO TRANSMISOR BAOFENG BF-888S (PAR X2)",18,30,27.2,"radio"],["BT-UV8D","BATERIA DE RADIO BAOFENG UV8D/UV82",18,30,16.0,"radio"],["BT-UV6D","BATERIA DE RADIO BAOFENG UV6D",18,30,16.0,"radio"],["BF-888S","RADIO TRANSMISOR BAOFENG BF-888S",18,30,13.6,"radio"],["BT-888S","BATERIA DE RADIO BAOFENG BF-888S",18,30,8.0,"radio"],["DS-PWA96-Kit-WB","KIT SISTEMA DE ALARMA INALAMBRICO HIKVISION DS-PWA96 AX PRO 96 ZONAS",10,180,384.0,"acc"],["DS-KIS202T","KIT DE VIDEO PORTERO HIKVISION DS-KIS202T PANTALLA 7 PULGADAS",10,180,152.0,"acc"],["CS-DB2C-A0-1E3WPBR","VIDEO TIMBRE INALAMBRICO CON TIMBRE EZVIZ CS-DB2C 1080P BATERIA 5200MAH",10,180,136.0,"acc"],["DS-K1T8003MF","TERMINAL DE CONTROL DE ACCESO DE HUELLAS DACTILARES HIKVISION (MIFARE)",10,180,92.8,"acc"],["DS-K1T8003EF","TERMINAL DE CONTROL DE ACCESO DE HUELLAS DACTILARES HIKVISION (EM)",10,180,92.8,"acc"],["FUENTE600W","FUENTE PODER 600W PARA PC",1,30,25.6,"comp"],["BASE26-55","BASE PARA TELEVISOR 26-63 PULGADAS FIJA HASTA 40KG 15 GRADOS",1,30,12.8,"comp"],["BASE 14-27","BASE PARA TELEVISOR 10-26 PULGADAS ARTICULADA HASTA 10KG",1,30,8.0,"comp"]];
+const PROD = [["PTZ-T4225I-D","CAMARA PTZ EXTERIOR HILOOK PTZ-T4225TI-D 2MP 25X ZOOM OPTICO",4,180,378,"cctv","AGOTADO"],["DS-2AE4215TI-D","CAMARA PTZ EXTERIOR HIKVISION DS-2AE4215TI-D 2MP 15X ZOOM OPTICO",4,180,350,"cctv","AGOTADO"],["PTZ-T4215I-D","CAMARA PTZ EXTERIOR HILOOK PTZ-T4215I-D 2MP 15X ZOOM OPTICO",4,180,224,"cctv","DISPONIBLE"],["DS-2DE2A404IW-DE3","CAMARA MINI PTZ IP HIKVISION DS-2DE2A404IW-DE3 4MP 4X DARKFIGHTER",12,180,224,"cctv","AGOTADO"],["DS-2DE2A204IW-DE3","CAMARA MINI PTZ IP HIKVISION DS-2DE2A204IW-DE3 2MP 4X DARKFIGHTER",12,180,210,"cctv","DISPONIBLE"],["DS-2CD1643G0-IZ","CAMARA VARIFOCAL IP MOTORIZADA HIKVISION DS-2CD1643G0-IZ (2.8-12MM) 4MP",12,180,196,"cctv","AGOTADO"],["HDMI-RJ200USB","EXTENDER CONVERTIDOR HDMI A RJ45 200M CON USB KVM (PAR)",30,30,168,"cctv","DISPONIBLE"],["DS-2CD1183G0-IUF","CAMARA DOMO IP HIKVISION DS-2CD1183G0-IUF 2.8MM 8MP 4K WDR 120DB MICROFONO SD",24,180,154,"cctv","DISPONIBLE"],["2CD1063G2-LIUF","CAMARA EXTERIOR IP HIKVISION DS-2CD1063G2-LIUF 2.8MM 6MP HIBRIDO SD AUDIO",36,180,112,"cctv","DISPONIBLE"],["DS-2CD1043G0-I","CAMARA EXTERIOR IP HIKVISION DS-2CD1043G0-I 2.8MM 4MP POE WDR 120DB",24,180,98,"cctv","AGOTADO"],["2CD1343G2-LIU","CAMARA DOMO IP HIKVISION DS-2CD1343G2-LIU 2.8MM 4MP HIBRIDO AUDIO",36,180,98,"cctv","DISPONIBLE"],["2CD1043G2-LIU","CAMARA EXTERIOR IP HIKVISION DS-2CD1043G2-LIU 2.8MM 4MP HIBRIDO",36,180,98,"cctv","DISPONIBLE"],["DS-2CD1143G0-I","CAMARA DOMO IP HIKVISION DS-2CD1143G0-I 2.8MM 4MP ANTIVANDALICA IK10",24,180,98,"cctv","DISPONIBLE"],["DS-2CD1127G0","CAMARA DOMO IP HIKVISION DS-2CD1127G0 2.8MM 2MP COLORVU",24,180,91,"cctv","AGOTADO"],["HDMI-RJ60USB","EXTENDER CONVERTIDOR HDMI A RJ45 60M CON USB KVM (PAR)",50,30,84,"cctv","DISPONIBLE"],["DS-2CD1023G0E-I","CAMARA EXTERIOR IP HIKVISION DS-2CD1023G0E-I 2.8MM 2MP POE IP67",24,180,77,"cctv","AGOTADO"],["2CD1323G2-LIU","CAMARA DOMO IP HIKVISION DS-2CD1323G2-LIU 2.8MM 2MP HIBRIDO AUDIO",36,180,77,"cctv","DISPONIBLE"],["2CE16U1T-ITPF2.8mm","CAMARA EXTERIOR BULLET PLASTICA HIKVISION DS-2CE16U1T-ITPF 2.8MM 8MP 4K",40,180,70,"cctv","DISPONIBLE"],["2CE76U1T-ITMF2.8","CAMARA DOMO METALICA HIKVISION DS-2CE76U1T-ITMF 2.8MM 8MP 4K",30,180,68.6,"cctv","DISPONIBLE"],["DS-2CE72DF3T-F","CAMARA DOMO METALICA HIKVISION DS-2CE72DF3T-F 2.8MM 2MP COLORVU 40M LUZ BLANCA",40,180,63,"cctv","AGOTADO"],["2CE76U1T-ITPF2.8","CAMARA DOMO PLASTICA HIKVISION DS-2CE76U1T-ITPF 2.8MM 8MP 4K",30,180,63,"cctv","DISPONIBLE"],["2CV1F43G2-LIDWF","CAMARA DOMO WIFI HIKVISION 4MP",27,90,60.2,"cctv","DISPONIBLE"],["2CE16U1T-ITF2.8mm","CAMARA EXTERIOR BULLET METALICA HIKVISION DS-2CE16U1T-ITF 2.8MM 8MP 4K",40,180,56,"cctv","AGOTADO"],["2CE5AD0T-VPIT3F","CAMARA DOMO VARIFOCAL HIKVISION 2CE5AD0T-VPIT3F",27,180,53.2,"cctv","AGOTADO"],["2CV1043G2-LIDWF","CAMARA EXTERIOR BULLET WIFI HIKVISION 4MP",50,90,53.2,"cctv","AGOTADO"],["2CE16D0T-VFIR3F","CAMARA VARIFOCAL BULLET HIKVISION DS-2CE16D0T-VFIR3F (2.8-12MM) 1080P",12,180,50.4,"cctv","AGOTADO"],["THC-T320-VF","CAMARA DOMO VARIFOCAL HILOOK THC-T320-VF 2.8-12MM 2MP",20,180,50.4,"cctv","NUEVO"],["2CV1F23G2-LIDWF","CAMARA DOMO WIFI HIKVISION 2MP",27,90,46.2,"cctv","AGOTADO"],["2CE10DF3T-PF2.8mm","CAMARA EXTERIOR BULLET HIKVISION DS-2CE10DF3T-PF 2.8MM 2MP COLORVU 130DB WDR",40,180,44.8,"cctv","AGOTADO"],["2CE70DF3T-PFS","CAMARA DOMO PLASTICA HIKVISION DS-2CE70DF3T-PFS 2.8MM 2MP MICROFONO COLORVU",40,180,44.8,"cctv","AGOTADO"],["DS-2CE70DF0T-MF","CAMARA DOMO METALICA HIKVISION DS-2CE70DF0T-MF 2.8MM 2MP COLORVU IP67",24,180,42,"cctv","AGOTADO"],["2CE78D0T-IT3FS2.8mm","CAMARA DOMO HIKVISION DS-2CE78D0T-IT3FS 2.8MM 2MP MICROFONO 40M IR",40,180,42,"cctv","AGOTADO"],["2CE76K0T-LMFS","CAMARA DOMO ANTIVANDALICA HIKVISION DS-2CE76K0T-LMFS 3K HIBRIDO AUDIO",40,180,40.6,"cctv","NUEVO"],["DS-2CE16K0T-LPFS","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16K0T-LPFS 3K HIBRIDO AUDIO",30,180,37.8,"cctv","NUEVO"],["DS-2CE16K0T-LPTS","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16K0T-LPTS 3K AUDIO",30,180,37.8,"cctv","NUEVO"],["2CE76H0T-ITPFS2.8","CAMARA DOMO PLASTICA HIKVISION DS-2CE76H0T-ITPFS 2.8MM 5MP MICROFONO",30,180,37.8,"cctv","AGOTADO"],["2CE16D0T-LXTS","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16D0T-LXTS 2.8MM 2MP AUDIO",40,180,36.4,"cctv","NUEVO"],["2CE10DF0T-PF2.8mm","CAMARA EXTERIOR BULLET HIKVISION DS-2CE10DF0T-PF 2.8MM 2MP COLORVU PLASTICA",40,180,36.4,"cctv","NUEVO"],["2CE70DF0T-LPFS","CAMARA DOMO HIKVISION DS-2CE70DF0T-LPFS 2.8MM 2MP COLORVU AUDIO",24,180,36.4,"cctv","AGOTADO"],["2CE76K0T-LPFS","CAMARA DOMO HIKVISION DS-2CE76K0T-LPFS 3K HIBRIDO AUDIO",40,180,36.4,"cctv","NUEVO"],["DS-7104NI-S1/W","MINI NVR/DVS WIFI HIKVISION 4 CANALES",10,90,36.4,"cctv","DISPONIBLE"],["2CE10DF0T-F2.8mm","CAMARA EXTERIOR BULLET METALICA HIKVISION DS-2CE10DF0T-F 2.8MM 2MP COLORVU",40,180,35,"cctv","AGOTADO"],["2CE70DF0T-PF2.8mm","CAMARA DOMO HIKVISION DS-2CE70DF0T-PF 2.8MM 2MP COLORVU",40,180,35,"cctv","NUEVO"],["2CE76D0T-ITMFS2.8mm","CAMARA DOMO METALICA HIKVISION DS-2CE76D0T-ITMFS 2.8MM 2MP MICROFONO EXIR 2.0",40,180,35,"cctv","AGOTADO"],["2CE16H0T-ITF2.8","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16H0T-ITF 2.8MM 5MP IP67",30,180,35,"cctv","AGOTADO"],["2CE16H0T-ITPFS2.8","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16H0T-ITPFS 2.8MM 5MP MICROFONO",30,180,35,"cctv","AGOTADO"],["2CE76H0T-ITMF2.8","CAMARA DOMO METALICA HIKVISION DS-2CE76H0T-ITMF 2.8MM 5MP IP68",30,180,35,"cctv","AGOTADO"],["IPC-T221H-C","CAMARA DOMO IP HILOOK IPC-T221H-C 2.8MM 2MP",27,180,35,"cctv","NUEVO"],["2CE76D0T-ITPFS","CAMARA DOMO PLASTICA HIKVISION DS-2CE76D0T-ITPFS 2.8MM 2MP MICROFONO",40,180,33.6,"cctv","AGOTADO"],["2CE16D0T-LPFS","CAMARA EXTERIOR HIBRIDA BULLET HIKVISION DS-2CE16D0T-LPFS 2.8MM 1080P",45,180,32.2,"cctv","DISPONIBLE"],["2CE16D0T-LPTS","CAMARA EXTERIOR HIBRIDA BULLET HIKVISION DS-2CE16D0T-LPTS 2.8MM",45,180,32.2,"cctv","AGOTADO"],["2CE76D0T-LPFS","CAMARA DOMO HIBRIDO HIKVISION DS-2CE76D0T-LPFS 2.8MM 1080P",36,180,32.2,"cctv","AGOTADO"],["IPC-B121H-C","CAMARA EXTERIOR IP HILOOK IPC-B121H-C 2.8MM 2MP",27,180,32.2,"cctv","NUEVO"],["THC-B129-P","CAMARA EXTERIOR BULLET HILOOK THC-B129-P 2.8MM 2MP COLORVU",45,180,31.5,"cctv","NUEVO"],["2CE16D0T-ITFS2.8","CAMARA EXTERIOR AUDIO COAXIAL HIKVISION DS-2CE16D0T-ITFS 2.8MM 2MP IP67",40,180,30.8,"cctv","AGOTADO"],["THC-B150-P2.8","CAMARA EXTERIOR BULLET HILOOK THC-B150-P 2.8MM 5MP IP67",40,180,30.8,"cctv","AGOTADO"],["THC-T150-P","CAMARA DOMO HILOOK THC-T150-P 2.8MM 5MP",40,180,29.4,"cctv","NUEVO"],["THC-T129-P","CAMARA DOMO HILOOK THC-T129-P 2.8MM 2MP COLORVU",40,180,28.7,"cctv","NUEVO"],["2CE16D0T-IRF2.8","CAMARA EXTERIOR BULLET METALICA HIKVISION DS-2CE16D0T-IRF 2.8MM 1080P",45,180,28,"cctv","AGOTADO"],["THC-B127-LPS","CAMARA EXTERIOR BULLET HILOOK THC-B127-LPS 2.8MM 2MP HIBRIDO AUDIO",45,180,28,"cctv","NUEVO"],["2CE16D0T-ITPFS2.8","CAMARA EXTERIOR AUDIO COAXIAL HIKVISION DS-2CE16D0T-ITPFS 2.8MM 2MP IP67",40,180,28,"cctv","AGOTADO"],["THC-B120-PS","CAMARA EXTERIOR BULLET HILOOK THC-B120-PS 2.8MM 2MP",45,180,26.6,"cctv","NUEVO"],["THC-T127-LPS","CAMARA DOMO HILOOK THC-T127-LPS 2.8MM 2MP HIBRIDO AUDIO",40,180,25.9,"cctv","NUEVO"],["2CE56D0T-IRMMF2.8","CAMARA DOMO METALICA ANTIVANDALICA HIKVISION DS-2CE56D0T-IRMMF 2.8MM 1080P",40,180,25.2,"cctv","AGOTADO"],["DS-2CE70DF3T-MF","CAMARA DOMO METALICA HIKVISION DS-2CE70DF3T-MF 2.8MM 2MP COLORVU MICROFONO",24,180,25.2,"cctv","AGOTADO"],["THC-T120-PS2.8","CAMARA DOMO HILOOK THC-T120-PS 2.8MM 2MP",40,180,23.8,"cctv","AGOTADO"],["HDMI-RJ60","EXTENDER CONVERTIDOR HDMI A RJ45 60M (PAR)",50,30,22.4,"cctv","AGOTADO"],["DS-2CE70DF3T-PF","CAMARA DOMO PLASTICA HIKVISION DS-2CE70DF3T-PF 2.8MM 2MP COLORVU MICROFONO",24,180,22.4,"cctv","AGOTADO"],["2CE16D0T-IRPF2.8","CAMARA EXTERIOR BULLET PLASTICA HIKVISION DS-2CE16D0T-IRPF 2.8MM 1080P",45,180,20.3,"cctv","DISPONIBLE"],["2CE56D0T-IRPF2.8","CAMARA DOMO PLASTICA HIKVISION DS-2CE56D0T-IRPF 2.8MM 1080P",40,180,20.3,"cctv","AGOTADO"],["THC-B120-P2.8","CAMARA EXTERIOR BULLET HILOOK THC-B120-P 2.8MM 2MP",45,180,19.6,"cctv","NUEVO"],["THC-B120-PC2.8","CAMARA EXTERIOR BULLET HILOOK THC-B120-PC 2.8MM 2MP",45,180,18.9,"cctv","NUEVO"],["THC-T120-P2.8","CAMARA DOMO HILOOK THC-T120-P 2.8MM 2MP PLASTICA",40,180,18.2,"cctv","DISPONIBLE"],["2CE56C0T-IRMF2.8","CAMARA DOMO METALICA ANTIVANDALICA HIKVISION DS-2CE56C0T-IRMF 2.8MM 720P",40,180,17.5,"cctv","DISPONIBLE"],["THC-T120-PC","CAMARA DOMO HILOOK THC-T120-PC 2.8MM 2MP",40,180,17.5,"cctv","NUEVO"],["KVM4","KVM VGA 4 PUERTOS METALICO",100,30,16.8,"cctv","DISPONIBLE"],["SWITCH4H","SWITCH HDMI 4 PUERTOS METALICO",100,30,16.8,"cctv","DISPONIBLE"],["2CE16C0T-IRPF2.8","CAMARA EXTERIOR BULLET HIKVISION DS-2CE16C0T-IRPF 2.8MM 720P 4 EN 1",45,180,15.4,"cctv","AGOTADO"],["SIRENA30","SIRENA 30W BLANCA 118DB 2 TONOS 12VDC",16,30,14,"cctv","POR LLEGAR"],["2CE56C0T-IRPF2.8","CAMARA DOMO HIKVISION DS-2CE56C0T-IRPF 2.8MM 720P 4 EN 1",40,180,14,"cctv","AGOTADO"],["THC-T110-P2.8","CAMARA DOMO HILOOK THC-T110-P 2.8MM 720P 4 EN 1",40,180,11.9,"cctv","AGOTADO"],["SWITCH4","SWITCH VGA 4 PUERTOS METALICO",100,30,11.2,"cctv","DISPONIBLE"],["SWITCH2H","SWITCH HDMI 2 PUERTOS METALICO",100,30,11.2,"cctv","DISPONIBLE"],["SWITCH2","SWITCH VGA 2 PUERTOS METALICO",100,30,9.8,"cctv","DISPONIBLE"],["KVM2H","KVM HDMI 3 PUERTOS METALICO",100,30,9.8,"cctv","DISPONIBLE"],["KVM2","KVM VGA 2 PUERTOS METALICO",100,30,7,"cctv","DISPONIBLE"],["HDMI-RJ30M","EXTENDER CONVERTIDOR HDMI A RJ45 30M (PAR)",50,30,7,"cctv","AGOTADO"],["SIRENA15","SIRENA 15W NEGRA 110DB 2 TONOS 12VDC",50,30,6.3,"cctv","DISPONIBLE"],["VID-3EN1","VIDEO BALUN RJ45 3 EN 1",100,30,4.9,"cctv","DISPONIBLE"],["VID-2EN1","VIDEO BALUN RJ45 2 EN 1",100,30,4.2,"cctv","DISPONIBLE"],["DIVISOR-8","CABLE DIVISOR DE ENERGIA PARA 8 CAMARAS",25,30,4.2,"cctv","DISPONIBLE"],["DIVISOR-4","CABLE DIVISOR DE ENERGIA PARA 4 CAMARAS",50,30,2.8,"cctv","DISPONIBLE"],["VID-AHD","VIDEO BALUN AHD (PAR)",100,30,2.1,"cctv","DISPONIBLE"],["DIVISOR-2","CABLE DIVISOR DE ENERGIA PARA 2 CAMARAS",50,30,1.4,"cctv","DISPONIBLE"],["H-Y-M","PAR DE CONECTOR DC MACHO Y HEMBRA",100,30,0.35,"cctv","DISPONIBLE"],["7332HUHI-K4","DVR 32 CANALES HIKVISION DS-7332HUHI-K4 (SOPORTA 8MP) RAID 4 HDD",2,180,1148,"grab","DISPONIBLE"],["7332HUHI-M4/S","DVR 32 CANALES HIKVISION DS-7332HUHI-M4/S (SOPORTA 8MP) 4 HDD",2,180,1120,"grab","DISPONIBLE"],["DISCO-10TB","DISCO DURO 10TB 100% NUEVO",20,90,882,"grab","NUEVO"],["DISCO-8TB","DISCO DURO 8TB 100% NUEVO",20,90,840,"grab","NUEVO"],["DS-7732NXI-K4/16P","NVR 32 CANALES HIKVISION DS-7732NXI-K4/16P ACUSENSE 16 POE",2,180,672,"grab","DISPONIBLE"],["DS-7732NI-K4/16P","NVR 32 CANALES HIKVISION DS-7732NI-K4/16P 16 POE 4 SATA",2,180,672,"grab","DISPONIBLE"],["7216HUHI-M2/X/4A+16/4ALM","DVR 16 CANALES HIKVISION IDS-7216HUHI-M2/X/4A+16/4ALM",4,180,546,"grab","NUEVO"],["DISCO-6TB","DISCO DURO 6TB 100% NUEVO",20,90,462,"grab","NUEVO"],["DS-7732NXI-K4","NVR 32 CANALES HIKVISION DS-7732NXI-K4 ACUSENSE 4 SATA",2,180,448,"grab","DISPONIBLE"],["7232HQHI-M2/XT","DVR 32 CANALES HIKVISION DS-7232HQHI-M2XT 1080P (SOPORTA 4MP)",4,180,420,"grab","AGOTADO"],["7216HUHI-M2/S","DVR 16 CANALES HIKVISION DS-7216HUHI-M2/S (SOPORTA 8MP)",4,180,420,"grab","AGOTADO"],["DS-7616NI-I2/16P","NVR 16 CANALES HIKVISION DS-7616NI-I2/16P 16 POE ALARM",4,180,420,"grab","AGOTADO"],["DS-7732NI-K4","NVR 32 CANALES HIKVISION DS-7732NI-K4 4 SATA HASTA 10TB",2,180,420,"grab","AGOTADO"],["DS-7232HQHI-M2/S","DVR 32 CANALES HIKVISION IDS-7232HQHI-M2/S ACUSENSE",4,180,406,"grab","DISPONIBLE"],["DS-7616NXI-K2/16P","NVR 16 CANALES HIKVISION DS-7616NXI-K2/16P ACUSENSE 16 POE",4,180,392,"grab","DISPONIBLE"],["7232HQHI-K2","DVR 32 CANALES HIKVISION DS-7232HQHI-K2 1080P (SOPORTA 4MP)",4,180,364,"grab","AGOTADO"],["DISCO-4TB","DISCO DURO 4TB 100% NUEVO",25,90,336,"grab","NUEVO"],["7208HUHI-M1/XT/4A+8/4ALM","DVR 8 CANALES HIKVISION IDS-7208HUHI-M1/XT/4A+8/4ALM",4,180,336,"grab","NUEVO"],["7232HGHI-M2","DVR 32 CANALES HIKVISION DS-7232HGHI-M2",4,180,322,"grab","DISPONIBLE"],["DS-7616NI-Q2/16P","NVR 16 CANALES HIKVISION DS-7616NI-Q2/16P CON 16 PUERTOS POE",4,180,308,"grab","DISPONIBLE"],["7216HQHI-M1/XT","DVR 16 CANALES HIKVISION DS-7216HQHI-M1/XT (SOPORTA 4MP)",8,180,252,"grab","NUEVO"],["7216HQHI-M1/FA","DVR 16 CANALES HIKVISION DS-7216HQHI-M1/FA ACUSENSE RECONOCIMIENTO FACIAL",4,180,252,"grab","DISPONIBLE"],["DISCO-2TB","DISCO DURO 2TB 100% NUEVO",20,90,245,"grab","NUEVO"],["7208HUHI-M1/S","DVR 8 CANALES HIKVISION DS-7208HUHI-M1/S ACUSENSE (SOPORTA 8MP)",4,180,238,"grab","AGOTADO"],["7208HUHI-K2/P","DVR 8 CANALES HIKVISION DS-7208HUHI-K2/P (SOPORTA 8MP)",4,180,224,"grab","AGOTADO"],["DS-7608NXI-K1/8P","NVR 8 CANALES HIKVISION DS-7608NXI-K1/8P ACUSENSE 8 POE",4,180,224,"grab","DISPONIBLE"],["DS-7608NI-Q2/8P","NVR 8 CANALES HIKVISION DS-7608NI-Q2/8P 8 PUERTOS POE",4,180,196,"grab","AGOTADO"],["DS-7616NXI-K2","NVR 16 CANALES HIKVISION DS-7616NXI-K2 ACUSENSE 2 SATA",4,180,189,"grab","DISPONIBLE"],["DS-7616NI-K2","NVR 16 CANALES HIKVISION DS-7616NI-K2 2 SATA ALARM I/O",4,180,182,"grab","AGOTADO"],["7116HQHI-M1/S","DVR 16 CANALES HIKVISION DS-7116HQHI-M1/S 1080P (SOPORTA 4MP)",10,180,175,"grab","NUEVO"],["DS-7616NI-Q2","NVR 16 CANALES HIKVISION DS-7616NI-Q2 HASTA 8MP 4K 2 SATA",4,180,154,"grab","AGOTADO"],["7208HQHI-M1/XT","DVR 8 CANALES HIKVISION DS-7208HQHI-M1/XT (SOPORTA 4MP)",8,180,147,"grab","NUEVO"],["7204HUHI-M1/S","DVR 4 CANALES HIKVISION DS-7204HUHI-M1/S (SOPORTA 8MP)",10,180,140,"grab","AGOTADO"],["DS-7108NI-Q1/8P","NVR 8 CANALES HIKVISION DS-7108NI-Q1/8P HASTA 8MP 4K CON 8 PUERTOS POE",4,180,140,"grab","DISPONIBLE"],["NVR-216MH-C","NVR 16 CANALES HILOOK NVR-216MH-C HASTA 8MP 4K",4,180,140,"grab","AGOTADO"],["DS-E08HGHI-B","DVR MINI 8 CANALES HIKVISION DS-E08HGHI-B SSD INTERNO 480GB eSSD",10,180,133,"grab","AGOTADO"],["7116HGHI-M1","DVR 16 CANALES HIKVISION DS-7116HGHI-M1 (SOPORTA 1080P)",10,180,119,"grab","NUEVO"],["7108HQHI-M1/S","DVR 8 CANALES HIKVISION DS-7108HQHI-M1/S 1080P (SOPORTA 4MP)",10,180,116.2,"grab","NUEVO"],["7216HGHI-M1","DVR 16 CANALES HIKVISION DS-7216HGHI-M1 (SOPORTA 1080P / 5MP IP)",8,180,112,"grab","DISPONIBLE"],["7204HQHI-M1/XT","DVR 4 CANALES HIKVISION DS-7204HQHI-M1/XT (SOPORTA 4MP)",8,180,112,"grab","NUEVO"],["DS-7608NI-Q1","NVR 8 CANALES HIKVISION DS-7608NI-Q1 HASTA 8MP 4K 1 SATA",4,180,112,"grab","DISPONIBLE"],["DISCO-1TB","DISCO DURO 1TB 100% NUEVO",25,90,92.4,"grab","AGOTADO"],["7208HGHI-M1/T","DVR 8 CANALES HIKVISION DS-7208HGHI-M1/T (SOPORTA 1080P)",8,180,91,"grab","NUEVO"],["7108HGHI-M1/T","DVR 8 CANALES HIKVISION DS-7108HGHI-M1/T (SOPORTA 1080P)",10,180,77,"grab","NUEVO"],["7104HQHI-M1/S","DVR 4 CANALES HIKVISION DS-7104HQHI-M1/S 1080P (SOPORTA 4MP)",10,180,75.6,"grab","DISPONIBLE"],["7208HGHI-M1","DVR 8 CANALES HIKVISION DS-7208HGHI-M1 (SOPORTA 1080P)",8,180,67.2,"grab","NUEVO"],["7108HGHI-M1","DVR 8 CANALES HIKVISION DS-7108HGHI-M1 (SOPORTA 1080P)",10,180,67.2,"grab","NUEVO"],["7104HGHI-M1/T","DVR 4 CANALES HIKVISION DS-7104HGHI-M1/T (SOPORTA 1080P)",10,180,58.8,"grab","NUEVO"],["7204HGHI-K1","DVR 4 CANALES HIKVISION DS-7204HGHI-K1 (SOPORTA 1080P)",8,180,53.2,"grab","AGOTADO"],["7208HGHI-F1/N","DVR 8 CANALES HIKVISION DS-7208HGHI-F1/N (SOPORTA 1080P)",8,180,53.2,"grab","AGOTADO"],["7104HGHI-M1","DVR 4 CANALES HIKVISION DS-7104HGHI-M1 (SOPORTA 1080P)",10,180,44.8,"grab","DISPONIBLE"],["7104HGHI-K1","DVR 4 CANALES HIKVISION DS-7104HGHI-K1 (SOPORTA 1080P)",10,180,44.8,"grab","AGOTADO"],["7204HGHI-F1","DVR 4 CANALES HIKVISION DS-7204HGHI-F1 (SOPORTA 1080P)",8,180,35,"grab","AGOTADO"],["LP16-48300","BATERIA DE LITIO MUST LP16-48300 (48V 300AH)",1,365,3500,"ener","POR LLEGAR"],["INF-LFP-48300","BATERIA DE LITIO INFINI SOLAR INF-LFP-48300 (48V 300AH)",1,365,3290,"ener","POR LLEGAR"],["LP16-48200","BATERIA DE LITIO MUST LP16-48200 (48V 200AH)",1,365,2786,"ener","POR LLEGAR"],["LP16-24200","BATERIA DE LITIO MUST LP16-24200 (24V 200AH)",1,365,1680,"ener","NUEVO"],["LP16-48100","BATERIA DE LITIO MUST LP16-48100 (48V 100AH)",1,365,1540,"ener","DISPONIBLE"],["HBP18-20240LV","INVERSOR PORTATIL TODO EN UNO MUST 2KW BATERIA 2560WH",1,180,1470,"ener","NUEVO"],["INF-LFP-48100","BATERIA DE LITIO INFINI SOLAR INF-LFP-48100 (48V 100AH)",1,365,1400,"ener","AGOTADO"],["LP15-24200","BATERIA DE LITIO MUST LP15-24200 (24V 200AH)",1,365,1330,"ener","POR LLEGAR"],["LP16-24100","BATERIA DE LITIO MUST LP16-24100 (24V 100AH)",1,365,994,"ener","DISPONIBLE"],["HBP18-10120LV","INVERSOR PORTATIL TODO EN UNO MUST 1KW BATERIA 1280WH",1,180,868,"ener","NUEVO"],["LP15-12200","BATERIA DE LITIO MUST LP15-12200 (12V 200AH)",1,365,714,"ener","NUEVO"],["LP15-24100","BATERIA DE LITIO MUST LP15-24100 (24V 100AH)",1,365,714,"ener","DISPONIBLE"],["HBP18-1012LV-HG8","INVERSOR PORTATIL TODO EN UNO MUST 1KW BATERIA 960WH",1,180,700,"ener","AGOTADO"],["LP15-12100","BATERIA DE LITIO MUST LP15-12100 (12V 100AH)",1,365,406,"ener","DISPONIBLE"],["EP30-1524LV2","INVERSOR POWER HOUSE MUST EP30-1524LV2 1.5KW 24V",1,180,378,"ener","OFERTAS"],["V-3000-110","UPS BEGPROD 3000VA 1800W 110V 8 TOMAS 4 BATERIA 9A",1,180,280,"ener","POR LLEGAR"],["V-3000-220","UPS BEGPROD 3000VA 1800W 220V 4 BATERIA 9A",1,180,280,"ener","DISPONIBLE"],["EP30-1012LV2","INVERSOR POWER HOUSE MUST EP30-1012LV2 1KW 12V",1,180,280,"ener","AGOTADO"],["PI15-2024LV","INVERSOR MUST ONDA PURA 2KW 24V A 110V",8,180,217,"ener","AGOTADO"],["DS-UPS2000-X","UPS 2000VA HIKVISION DS-UPS2000-R/X",4,90,210,"ener","AGOTADO"],["PI15-2012LV","INVERSOR MUST ONDA PURA 2KW 12V A 110V",8,180,210,"ener","AGOTADO"],["V-2000-220","UPS BEGPROD 2000VA 1200W 220V 2 BATERIA 9A",2,180,182,"ener","DISPONIBLE"],["PI15-1012LV","INVERSOR MUST ONDA PURA 1KW (1000W) 12V A 110V",8,180,161,"ener","DISPONIBLE"],["STE2000","UPS BEGPROD 2000VA 1200W 6 TOMAS 2 BATERIA 9A",2,180,154,"ener","AGOTADO"],["STE1500","UPS BEGPROD 1500VA 900W 6 TOMAS 2 BATERIA 7A",2,180,126,"ener","AGOTADO"],["PI15-0612LV","INVERSOR MUST ONDA PURA 600W 12V A 110V",8,180,112,"ener","POR LLEGAR"],["VR-330LI","UPS BEGPROD 330W BATERIA LITIO 28800MAH/92WH",4,180,105,"ener","AGOTADO"],["NPS2048","MINI UPS BEGPROD NPS 2048 100W 24000MAH",6,180,84,"ener","AGOTADO"],["BK1000B","UPS BEGPROD 1000VA 650W 4 TOMAS BATERIA 9A",4,180,67.2,"ener","NUEVO"],["BK1000B7","UPS BEGPROD 1000VA 500W 4 TOMAS BATERIA 7A",4,180,63,"ener","NUEVO"],["DS-UPS600-X","UPS 600VA HIKVISION DS-UPS600-X",4,90,56,"ener","AGOTADO"],["FC12-18","BATERIA 12V 18AMP MCA (18x7.5x16.5 cm)",4,180,54.6,"ener","POR LLEGAR"],["FTC30A18","FUENTE CENTRALIZADA 12V 30A 18 PUERTOS",10,30,42,"ener","DISPONIBLE"],["ECOP18-12000M/1000M","MINI UPS BEGPROD ECO P18 18W 12000MAH 1000M-24V",36,180,36.4,"ener","AGOTADO"],["FC12-12","BATERIA 12V 12AMP MCA (15x9.5x9.5 cm)",4,180,35,"ener","POR LLEGAR"],["ECOP18-12000M","MINI UPS BEGPROD ECO P18 18W 12000MAH (5V 9V 12V POE 24V USB)",36,180,33.6,"ener","POR LLEGAR"],["DS-UPS18D-Z","MINI UPS HIKVISION 18W 8000MAH",36,180,32.2,"ener","AGOTADO"],["FTC20A9","FUENTE CENTRALIZADA 12V 20A 9 PUERTOS",10,30,32.2,"ener","DISPONIBLE"],["FC12-9","BATERIA 12V 9AMP MCA (15x10x7 cm)",5,180,25.2,"ener","POR LLEGAR"],["FT30A","FUENTE CONMUTADA 12V 30A",50,30,25.2,"ener","DISPONIBLE"],["FT20A","FUENTE CONMUTADA 12V 20A",50,30,21,"ener","DISPONIBLE"],["FC12-7","BATERIA 12V 7AMP MCA (15x10x7 cm)",5,180,19.6,"ener","POR LLEGAR"],["FT15A","FUENTE CONMUTADA 12V 15A",50,30,16.8,"ener","DISPONIBLE"],["FC12-4.5","BATERIA 12V 4.5AMP MCA (9x10x7 cm)",10,180,15.4,"ener","POR LLEGAR"],["12V10A","TRANSFORMADOR 12V 10A",50,30,14,"ener","AGOTADO"],["FT10A","FUENTE CONMUTADA 12V 10A",50,30,14,"ener","DISPONIBLE"],["BT-32700/6000AX2","BATERIA LITIO 32700 6000MAHX2 PARA MINI UPS ECOP18",30,30,11.2,"ener","AGOTADO"],["FC6-4.5","BATERIA 6V 4.5AMP MCA (7x4.5x10 cm)",10,180,9.8,"ener","POR LLEGAR"],["12V5A","TRANSFORMADOR 12V 5A",100,30,6.3,"ener","AGOTADO"],["12V3A","TRANSFORMADOR 12V 3A",100,30,4.9,"ener","AGOTADO"],["12V2A","TRANSFORMADOR 12V 2A",200,30,2.8,"ener","DISPONIBLE"],["DH-PFM320-010US","TRANSFORMADOR DAHUA 12V 1A",200,30,2.38,"ener","OFERTAS"],["12V1A","TRANSFORMADOR 12V 1A",250,30,1.82,"ener","DISPONIBLE"],["DS-3E1526P-EI/M","SWITCH POE HIKVISION DS-3E1526P-EI/M 24 PUERTOS GIGABIT",4,180,378,"red","NUEVO"],["DS-3E0526P-E/M","SWITCH POE HIKVISION DS-3E0526P-E/M 24 PUERTOS GIGABIT + 2 SFP RACKEABLE",4,180,357,"red","DISPONIBLE"],["DS-3E1518P-EI/M","SWITCH POE HIKVISION DS-3E1518P-EI/M 16 PUERTOS GIGABIT",4,180,280,"red","NUEVO"],["DS-3E0518P-E/M","SWITCH POE HIKVISION DS-3E0518P-E/M 16 PUERTOS GIGABIT + 2 SFP RACKEABLE",4,180,266,"red","DISPONIBLE"],["DS-3E0524-E","SWITCH HIKVISION DS-3E0524-E 24 PUERTOS GIGABIT",4,180,119,"red","DISPONIBLE"],["DS-3E0516-E","SWITCH HIKVISION DS-3E0516-E 16 PUERTOS GIGABIT",4,180,98,"red","DISPONIBLE"],["DH-PFS3006-4GT-60-V2","SWITCH DAHUA 4 PTOS POE GIGABIT",8,365,77,"red","OFERTAS"],["DH-MAX18","ROUTER DAHUA DH-MAX18 DUAL BAND 4 ANTENA",20,365,60.2,"red","OFERTAS"],["DS-3E0109P-E/M","SWITCH POE HIKVISION DS-3E0109P-E/M 8 PUERTOS POE",10,180,57.4,"red","NUEVO"],["A10/AC2600","ROUTER TP-LINK ARCHER A10 AC2600 GIGABIT MU-MIMO DUAL CORE 1.4GHZ",10,90,56,"red","OFERTAS"],["DS-3E1505P-EI/M","SWITCH POE HIKVISION DS-3E1505P-EI/M 5 PUERTOS GIGABIT",30,180,56,"red","NUEVO"],["DH-NC1800","ADAPTADOR USB WIFI DAHUA DH-NC1800",50,365,36.4,"red","OFERTAS"],["DH-AX18","ROUTER DAHUA DH-AX18 AX1800 DUAL BAND 4 ANTENA",9,365,35,"red","OFERTAS"],["DS-3E0505-E","SWITCH HIKVISION DS-3E0505-E 5 PUERTOS GIGABIT",40,180,32.2,"red","AGOTADO"],["DS-3E0508D-E","SWITCH HIKVISION DS-3E0508D-E 8 PUERTOS GIGABIT",40,180,30.8,"red","NUEVO"],["VGA20","CABLE VGA 20 METROS ALTA CALIDAD 1080P",30,30,25.2,"red","DISPONIBLE"],["HDMI15A","CABLE HDMI 15 METROS ORIGINAL 4K",30,30,18.2,"red","AGOTADO"],["DH-N3","ROUTER DAHUA DH-N3 N300 2 ANTENA",20,365,15.4,"red","OFERTAS"],["VGA10","CABLE VGA 10 METROS ALTA CALIDAD 1080P",30,30,15.4,"red","DISPONIBLE"],["HDMI10A","CABLE HDMI 10 METROS ORIGINAL 4K",30,30,11.2,"red","AGOTADO"],["DS-3E0108D-O","SWITCH HIKVISION DS-3E0108D-O 8 PUERTOS 10/100",40,180,10.5,"red","NUEVO"],["DS-3E0105D-O","SWITCH HIKVISION DS-3E0105D-O 5 PUERTOS 10/100",40,180,8.4,"red","NUEVO"],["HDMI5","CABLE HDMI 5 METROS",50,30,4.9,"red","DISPONIBLE"],["VGA5","CABLE VGA 5 METROS",30,30,4.2,"red","DISPONIBLE"],["HDMI3","CABLE HDMI 3 METROS",100,30,3.5,"red","DISPONIBLE"],["VGA3","CABLE VGA 3 METROS",100,30,2.8,"red","DISPONIBLE"],["HDMI1.5","CABLE HDMI 1.5 METROS",100,30,2.1,"red","DISPONIBLE"],["VGA1.5","CABLE VGA 1.5 METROS",100,30,2.1,"red","DISPONIBLE"],["DCMM0.5M","CABLE DC MACHO A MACHO 0.5 METROS",2000,30,1.4,"red","DISPONIBLE"],["PH11-10KL2US-","INVERSOR HIBRIDO MUST PH11-10KL2-US 10KW 48V 220V IP66",1,365,3360,"solar","AGOTADO"],["PV39-12048TLV","INVERSOR HIBRIDO MUST PV39-12048TLV 12KW 48V 220V",1,365,2520,"solar","POR LLEGAR"],["PV33-6048TLV","INVERSOR HIBRIDO MUST PV33-6048TLV 6KW 48V 110V/220V",1,365,952,"solar","POR LLEGAR"],["VP330-6048TLV","INVERSOR HIBRIDO INFINI SOLAR 6KW 48V A 220V",1,365,952,"solar","POR LLEGAR"],["PV18-3024LV","INVERSOR HIBRIDO MUST PV18-3024LV 3KW 24V A 110V MPPT 100A",1,365,658,"solar","POR LLEGAR"],["PV33-3024TLV","INVERSOR HIBRIDO MUST PV33-3024TLV 3KW 24V 110V/220V",1,365,658,"solar","DISPONIBLE"],["VP330-3024TLV","INVERSOR HIBRIDO INFINI SOLAR 3KW 24V A 220V",1,365,658,"solar","DISPONIBLE"],["PV29-3024LHP","INVERSOR HIBRIDO MUST PV29-3024LHP 3KW 24V A 110V MPPT 80A",1,365,630,"solar","NUEVO"],["PV18-1012LV","INVERSOR HIBRIDO MUST PV18-1012LV 1KW 12V A 110V MPPT 60A",1,365,350,"solar","POR LLEGAR"],["PV15-1524LV","INVERSOR HIBRIDO MUST PV15-1524LV 1.5KW 24V A 110V",1,365,350,"solar","DISPONIBLE"],["PC18-10025F","CONTROLADOR SOLAR MUST MPPT PC1800 100A (12V/24V/48V)",4,180,238,"solar","DISPONIBLE"],["PC18-8015F","CONTROLADOR SOLAR MUST MPPT PC1800 80A (12V/24V/48V)",4,180,210,"solar","POR LLEGAR"],["PC18-8025F","CONTROLADOR SOLAR MUST MPPT PC1800 80A (12V/24V/48V)",4,180,210,"solar","DISPONIBLE"],["PC18-6015F","CONTROLADOR SOLAR MUST MPPT PC1800 60A (12V/24V/48V)",4,180,189,"solar","AGOTADO"],["PC18-6025F","CONTROLADOR SOLAR MUST MPPT PC1800 60A (12V/24V/48V)",4,180,189,"solar","POR LLEGAR"],["WIFI-MUST","MODULO WIFI DE INVERSOR MUST (USB)",1,365,35,"solar","DISPONIBLE"],["WIFI-PRO25","MODULO WIFI DE INVERSOR MUST PRO-25 (USB)",1,365,35,"solar","DISPONIBLE"],["RAD-UV82","RADIO TRANSMISOR BAOFENG UV-82",30,30,32.2,"radio","DISPONIBLE"],["RAD-UV6D","RADIO TRANSMISOR BAOFENG UV-6D",30,30,25.2,"radio","AGOTADO"],["RAD-UV8D","RADIO TRANSMISOR BAOFENG UV-8D",30,30,25.2,"radio","DISPONIBLE"],["BF-888SX2","RADIO TRANSMISOR BAOFENG BF-888S (PAR X2)",30,30,23.8,"radio","DISPONIBLE"],["BT-UV8D","BATERIA DE RADIO BAOFENG UV8D/UV82",30,30,14,"radio","DISPONIBLE"],["BT-UV6D","BATERIA DE RADIO BAOFENG UV6D",30,30,14,"radio","AGOTADO"],["BF-888S","RADIO TRANSMISOR BAOFENG BF-888S",50,30,11.9,"radio","DISPONIBLE"],["BT-888S","BATERIA DE RADIO BAOFENG BF-888S",30,30,7,"radio","DISPONIBLE"],["DS-PWA96-Kit-WB","KIT SISTEMA DE ALARMA INALAMBRICO HIKVISION DS-PWA96 AX PRO 96 ZONAS",20,180,336,"acc","DISPONIBLE"],["DS-KIS202T","KIT DE VIDEO PORTERO HIKVISION DS-KIS202T PANTALLA 7 PULGADAS",50,180,133,"acc","DISPONIBLE"],["CS-DB2C-A0-1E3WPBR","VIDEO TIMBRE INALAMBRICO CON TIMBRE EZVIZ CS-DB2C 1080P BATERIA 5200MAH",50,180,119,"acc","DISPONIBLE"],["DS-K1T8003MF","TERMINAL DE CONTROL DE ACCESO DE HUELLAS DACTILARES HIKVISION (MIFARE)",24,180,81.2,"acc","NUEVO"],["DS-K1T8003EF","TERMINAL DE CONTROL DE ACCESO DE HUELLAS DACTILARES HIKVISION (EM)",24,180,81.2,"acc","NUEVO"],["FUENTE600W","FUENTE PODER 600W PARA PC",10,30,22.4,"comp","DISPONIBLE"],["BASE26-55","BASE PARA TELEVISOR 26-63 PULGADAS FIJA HASTA 40KG 15 GRADOS",20,30,11.2,"comp","DISPONIBLE"],["BASE 14-27","BASE PARA TELEVISOR 10-26 PULGADAS ARTICULADA HASTA 10KG",20,30,7,"comp","DISPONIBLE"]];
 
 /* ══════════════════════════════════════════════════════════════════════
    ███  CONFIGURACIÓN — EDITAR SOLO ESTE BLOQUE  ███
@@ -1577,14 +1834,15 @@ const CONFIG = {
   ciudad:        'Guanare, estado Portuguesa',
   direccion:     'Calle 26 entre carreras 3 y 5, Edificio Centro Empresarial Marjoca, P1-L08, Guanare, estado Portuguesa',
 
-  vigenciaOferta: '90 días',
+  vigenciaOferta: '15 días',
   tasaBs: 190.00,
+  tasaFecha: '28/08/2026', // fecha de referencia de tasaBs — actualizar junto con el monto
   monedaInicial: 'USD',
 
   /* ── Condiciones comerciales ─────────────────────────────────────── */
-  descuentoContado: 25,     // % de descuento por pago de contado, SOLO sobre equipos
-  minimoJornada:    8,      // locales mínimos para programar una jornada
-  optimoJornada:   12,
+  descuentoContado: 10,     // % de descuento por pago de contado, SOLO sobre equipos
+  minimoJornada:    40,     // afiliados mínimos (mezcla de paquetes) para activar el convenio
+  optimoJornada:   60,
 
   /* Calendario de pago del financiamiento a 45 días */
   calendario: [
@@ -1620,7 +1878,7 @@ const CONFIG = {
       id:'micro', nombre:'Micro-comercio', corto:'Micro', unidades:'2 cámaras',
       etiqueta:'Paquete I',
       ideal:'Kioscos, cafeterías, bodegas, consultorios, oficinas y locales de hasta 50 m².',
-      items:[ ['THC-B129-P',2], ['7104HGHI-M1/T',1], ['DISCO-2TB',1], ['BK1000B',1],
+      items:[ ['THC-B129-P',2], ['7104HGHI-M1/T',1], ['DISCO-1TB',1], ['BK1000B',1],
               ['FTC20A9',1], ['VID-AHD',2], ['DIVISOR-2',1], ['HDMI3',1] ],
       mano:[ ['Punto de cámara externa',2,28], ['Configuración de DVR',1,60],
              ['Punto eléctrico',1,15] ]
@@ -1667,8 +1925,6 @@ const QUIETO = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let moneda = CONFIG.monedaInicial === 'VES' ? 'VES' : 'USD';
 const money  = (usd,c) => ((c||moneda) === 'VES') ? 'Bs. ' + nf.format(usd*CONFIG.tasaBs) : '$' + nf.format(usd);
-const moneyS = (usd,c) => ((c||moneda) === 'VES') ? 'Bs. ' + nf0.format(usd*CONFIG.tasaBs) : '$' + nf0.format(usd);
-const otra   = () => moneda === 'USD' ? 'VES' : 'USD';
 const waLink = t => 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(t);
 
 /* El catálogo viene en MAYÚSCULAS y sin acentos: se normaliza para leerlo. */
@@ -1716,9 +1972,6 @@ function precioPaquete(p){
            fin: equipos + mano, cont: eqCont + mano,
            ahorro: equipos - eqCont };
 }
-
-let sel = { paq: (CONFIG.paquetes.find(p => p.destacado) || CONFIG.paquetes[0]).id, modo:'fin' };
-const paqActual = () => CONFIG.paquetes.find(p => p.id === sel.paq) || CONFIG.paquetes[0];
 
 /* ── Escena CCTV ────────────────────────────────────────────────────── */
 (function(){
@@ -1855,9 +2108,10 @@ const PASO = 6;
 let vistos = PASO, famSel = '';
 (function(){
   const famGrid = $('#famGrid'), body = $('#catBody'), cuenta = $('#catCount'),
-        mas = $('#catMore'), q = $('#q'), chips = $('#famChips'), limpiar = $('#qClear');
+        mas = $('#catMore'), colapsar = $('#catCollapse'), q = $('#q'), chips = $('#famChips'), limpiar = $('#qClear');
   if (!body) return;
 
+  const PROD_OK = PROD.filter(p => (p[6]||'') !== 'AGOTADO'); // el catálogo publicado no muestra agotados
   const ICO = { cctv:'i-shield', grab:'i-box', ener:'i-bolt', solar:'i-sun',
                 red:'i-net', acc:'i-lock', radio:'i-radio', comp:'i-screen' };
   if (famGrid) famGrid.innerHTML = FAMS.map(function(f){
@@ -1865,9 +2119,9 @@ let vistos = PASO, famSel = '';
       '<b>' + FAMN[f] + '</b></article>';
   }).join('');
 
-  chips.innerHTML = '<button type="button" data-fam="" aria-pressed="true">Todo el catálogo <span>'+PROD.length+'</span></button>' +
+  chips.innerHTML = '<button type="button" data-fam="" aria-pressed="true">Todo el catálogo <span>'+PROD_OK.length+'</span></button>' +
     FAMS.map(f => '<button type="button" data-fam="'+f+'" aria-pressed="false">'+FAMN[f]+
-      ' <span>'+PROD.filter(p=>p[5]===f).length+'</span></button>').join('');
+      ' <span>'+PROD_OK.filter(p=>p[5]===f).length+'</span></button>').join('');
   $$('button', chips).forEach(function(b){
     b.addEventListener('click', function(){
       famSel = b.dataset.fam; vistos = PASO;
@@ -1887,11 +2141,11 @@ let vistos = PASO, famSel = '';
 
   function filtrados(){
     const t = q.value.trim().toUpperCase();
-    return PROD.filter(function(p){
+    return PROD_OK.filter(function(p){
       if (famSel && p[5] !== famSel) return false;
       if (t && (p[0]+' '+p[1]+' '+FAMN[p[5]]).toUpperCase().indexOf(t) < 0) return false;
       return true;
-    });
+    }).sort((a,b) => a[4]-b[4]);
   }
   function pinta(){
     const lista = filtrados(), trozo = lista.slice(0, vistos);
@@ -1899,8 +2153,9 @@ let vistos = PASO, famSel = '';
       body.innerHTML = '<tr><td colspan="2" class="catempty">Ningún producto coincide con la búsqueda.</td></tr>';
     } else {
       body.innerHTML = trozo.map(function(p){
+        const porLlegar = p[6] === 'POR LLEGAR';
         return '<tr><td><span class="pd">'+titulo(p[1])+'</span>' +
-          '<span class="pm"><b>'+p[0]+'</b> &middot; '+FAMN[p[5]]+'</span></td>' +
+          '<span class="pm"><b>'+p[0]+'</b> &middot; '+FAMN[p[5]]+(porLlegar ? ' &middot; <em class="pm__pend">Por llegar</em>' : '')+'</span></td>' +
           '<td class="pp">'+money(p[4])+'</td></tr>';
       }).join('');
     }
@@ -1908,12 +2163,17 @@ let vistos = PASO, famSel = '';
       (famSel || q.value.trim() ? ' que coinciden' : ' del catálogo');
     mas.hidden = lista.length <= vistos;
     mas.textContent = 'Ver ' + Math.min(PASO*3, lista.length - vistos) + ' productos más';
+    colapsar.hidden = vistos <= PASO;
     limpiar.hidden = !q.value;
     reveal();
   }
   q.addEventListener('input', function(){ vistos = PASO; pinta(); });
   limpiar.addEventListener('click', function(){ q.value=''; vistos=PASO; pinta(); q.focus(); });
   mas.addEventListener('click', function(){ vistos += PASO*3; pinta(); });
+  colapsar.addEventListener('click', function(){
+    vistos = PASO; pinta();
+    document.getElementById('catTable').scrollIntoView({ block:'start', behavior: QUIETO ? 'auto' : 'smooth' });
+  });
   window.__pintaCatalogo = pinta;
   pinta();
 })();
@@ -1922,7 +2182,7 @@ let vistos = PASO, famSel = '';
 (function(){
   const host = $('#tabulador'); if (!host) return;
   host.innerHTML = CONFIG.tabulador.map(function(g){
-    return '<div class="tabgrupo rv"><h4>'+g[0]+'</h4><dl>' +
+    return '<div class="tabgrupo"><h4>'+g[0]+'</h4><dl>' +
       g[1].map(r => '<div><dt>'+r[0]+'</dt><dd>$'+r[1]+'</dd></div>').join('') +
       '</dl></div>';
   }).join('');
@@ -1933,15 +2193,6 @@ let vistos = PASO, famSel = '';
   const host = $('#paqGrid'); if (!host) return;
   host.innerHTML = CONFIG.paquetes.map(function(c){
     const r = precioPaquete(c);
-    const eq = c.items.map(function(it){
-      const p = PIDX[it[0]]; if (!p) return '';
-      return '<li><span class="sku">'+it[1]+'×</span><span class="lin"><b>'+
-        titulo(sinRef(p[1], p[0]))+'</b><em>'+p[0]+'</em></span>' +
-        '<span class="pz num" data-usd="'+(p[4]*it[1]).toFixed(2)+'"></span></li>';
-    }).join('');
-    const mo = c.mano.map(m =>
-      '<li><span class="sku">'+m[1]+'×</span><span class="lin"><b>'+m[0]+'</b></span>' +
-      '<span class="pz num" data-usd="'+(m[1]*m[2]).toFixed(2)+'"></span></li>').join('');
     return '<article class="combo rv'+(c.destacado?' combo--focus':'')+'">' +
       '<div class="combo__hd"><span class="tag">'+c.etiqueta+'</span>' +
         '<span class="pill'+(c.destacado?' pill--solid':'')+'">'+c.unidades+'</span></div>' +
@@ -1952,8 +2203,6 @@ let vistos = PASO, famSel = '';
         '<span class="combo__amt" data-fin="'+r.fin.toFixed(2)+'" data-cont="'+r.cont.toFixed(2)+'"></span>' +
         '<span class="combo__tot" data-alt data-fin="'+r.fin.toFixed(2)+'" data-cont="'+r.cont.toFixed(2)+'"></span>' +
       '</div>' +
-      '<p class="bomlbl">Equipos</p><ul class="bom">'+eq+'</ul>' +
-      '<p class="bomlbl">Instalación</p><ul class="bom bom--mo">'+mo+'</ul>' +
       '<div class="compo" data-eq="'+r.equipos.toFixed(2)+'" data-mo="'+r.mano.toFixed(2)+'">' +
         '<div class="compo__bar" role="img" aria-label="Composición: equipos e instalación">' +
           '<span class="compo__seg compo__seg--eq"></span><span class="compo__seg compo__seg--mo"></span></div>' +
@@ -1961,52 +2210,63 @@ let vistos = PASO, famSel = '';
           '<li><i style="background:var(--brand)"></i>Equipos <b data-eq="'+r.equipos.toFixed(2)+'"></b></li>' +
           '<li><i style="background:var(--brand-800)"></i>Instalación <b data-mo="'+r.mano.toFixed(2)+'"></b></li>' +
         '</ul></div>' +
+      '<button type="button" class="combo__fichabtn" data-ficha="'+c.id+'">Ver ficha técnica del paquete<svg><use href="#i-chev"/></svg></button>' +
       '<div class="combo__foot"><a class="btn '+(c.destacado?'btn--solid':'btn--line')+' btn--wide" href="#pago" data-pick="'+c.id+'">Ver forma de pago</a></div>' +
     '</article>';
   }).join('');
   $$('[data-pick]', host).forEach(function(a){
-    a.addEventListener('click', function(){
-      sel.paq = a.dataset.pick;
-      const r = $('input[name=paq][value="'+a.dataset.pick+'"]'); if (r) r.checked = true;
-      render();
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      abrirCotizadorConPaquete(a.dataset.pick);
     });
+  });
+  $$('[data-ficha]', host).forEach(function(b){
+    b.addEventListener('click', function(){ abrirFicha(b.dataset.ficha); });
   });
 })();
 
-/* ── Selector de paquete y modalidad ────────────────────────────────── */
+/* ── Ficha técnica del paquete (modal superpuesto, con botón de cerrar) ── */
+function abrirFicha(pkgId){
+  const c = CONFIG.paquetes.find(p => p.id === pkgId); if (!c) return;
+  const eq = c.items.map(function(it){
+    const p = PIDX[it[0]]; if (!p) return '';
+    return '<li><span class="sku">'+it[1]+'×</span><span class="lin"><b>'+
+      titulo(sinRef(p[1], p[0]))+'</b><em>'+p[0]+'</em></span>' +
+      '<span class="pz num" data-usd="'+(p[4]*it[1]).toFixed(2)+'"></span></li>';
+  }).join('');
+  const mo = c.mano.map(m =>
+    '<li><span class="sku">'+m[1]+'×</span><span class="lin"><b>'+m[0]+'</b></span>' +
+    '<span class="pz num" data-usd="'+(m[1]*m[2]).toFixed(2)+'"></span></li>').join('');
+  $('#fichaTitle').textContent = 'Ficha técnica · ' + c.nombre;
+  $('#fichaEq').innerHTML = eq;
+  $('#fichaMo').innerHTML = mo;
+  $$('#fichaModal .pz').forEach(function(el){ if (el.dataset.usd) el.textContent = money(+el.dataset.usd); });
+  $('#fichaModal').hidden = false;
+  document.body.classList.add('qopen');
+  setTimeout(() => { const x = $('#fichaModal .qmodal__x'); if (x) x.focus(); }, 50);
+}
+function cerrarFicha(){
+  $('#fichaModal').hidden = true;
+  if ($('#quoteModal').hidden) document.body.classList.remove('qopen');
+}
 (function(){
-  $('#selPaq').innerHTML = CONFIG.paquetes.map(p =>
-    '<label class="opt"><input type="radio" name="paq" value="'+p.id+'"'+(p.id===sel.paq?' checked':'')+
-    '><b>'+p.corto+'</b><small>'+p.unidades+'</small></label>').join('');
-  $('#selModo').innerHTML =
-    '<label class="opt"><input type="radio" name="modo" value="fin" checked><b>Financiado</b><small>45 días</small></label>' +
-    '<label class="opt"><input type="radio" name="modo" value="cont"><b>Contado</b><small>−'+CONFIG.descuentoContado+'% en equipos</small></label>';
-  $$('input[name=paq]').forEach(r => r.addEventListener('change', function(){ sel.paq = r.value; render(); }));
-  $$('input[name=modo]').forEach(r => r.addEventListener('change', function(){ sel.modo = r.value; render(); }));
-  $$('.opt input').forEach(i => i.addEventListener('change', syncOpts));
+  const modal = $('#fichaModal'); if (!modal) return;
+  $$('[data-fclose]', modal).forEach(el => el.addEventListener('click', cerrarFicha));
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) cerrarFicha(); });
 })();
+
+/* ── Pérdida evitada (argumento dirigido al afiliado que paga) ────────── */
+function pintarLossBanner(){
+  const b = $('#lossBanner'); if (!b) return;
+  const local = CONFIG.paquetes.find(p => p.id === 'local') || CONFIG.paquetes[0];
+  const r = precioPaquete(local);
+  const robo = Math.round(r.cont * 1.7 / 100) * 100; // referencia redondeada, por encima del precio de contado
+  b.innerHTML = 'El paquete <b>' + local.nombre + '</b> (' + money(r.cont) + ' de contado) se paga solo con evitar un robo de ' + money(robo) + '.';
+}
+pintarLossBanner();
+
 function syncOpts(){
   $$('.opt').forEach(function(l){ const i = $('input', l); l.classList.toggle('opt--on', !!(i && i.checked)); });
-}
-
-/* ── Comparador de paquetes ─────────────────────────────────────────── */
-function pintaComparador(){
-  const body = $('#vsBody'); if (!body) return;
-  const P = CONFIG.paquetes, R = P.map(precioPaquete);
-  const cuenta = (p,f) => p.items.reduce((n,it)=>{ const r=PIDX[it[0]]; return n + (r && r[5]===f ? it[1] : 0); }, 0);
-  const filas = [
-    ['Cámaras y video',        P.map(p => cuenta(p,'cctv') + ' equipos')],
-    ['Grabación',              P.map(p => cuenta(p,'grab') + ' equipos')],
-    ['Energía y respaldo',     P.map(p => cuenta(p,'ener') + ' equipos')],
-    ['Renglones de instalación', P.map(p => p.mano.reduce((s,m)=>s+m[1],0) + ' puntos')],
-    ['Equipos',                R.map(r => money(sel.modo==='fin' ? r.equipos : r.eqCont))],
-    ['Instalación',            R.map(r => money(r.mano))],
-    ['Total',                  R.map(r => money(sel.modo==='fin' ? r.fin : r.cont)), 'hi']
-  ];
-  body.innerHTML = '<tr><th scope="col"></th>' + P.map(p =>
-      '<th scope="col" class="'+(p.id===sel.paq?'on':'')+'">'+p.corto+'</th>').join('') + '</tr>' +
-    filas.map(f => '<tr class="'+(f[2]||'')+'"><th scope="row">'+f[0]+'</th>' +
-      f[1].map((v,i) => '<td class="'+(P[i].id===sel.paq?'on':'')+'">'+v+'</td>').join('') + '</tr>').join('');
 }
 
 /* ── Índice lateral ─────────────────────────────────────────────────── */
@@ -2033,71 +2293,248 @@ function anclasInternas(){
     const a = e.target.closest('a[href^="#"]'); if (!a) return;
     const id = a.getAttribute('href').slice(1);
     const destino = id ? document.getElementById(id) : document.body;
-    if (!destino) return;
     e.preventDefault();
+    if (!destino) return;
     const y = id ? destino.getBoundingClientRect().top + window.scrollY - 76 : 0;
     window.scrollTo({ top:y, behavior: QUIETO ? 'auto' : 'smooth' });
     if (id && history.replaceState) history.replaceState(null, '', '#' + id);
   });
 }
 
-/* ── Mensaje de WhatsApp ────────────────────────────────────────────── */
-function mensajePlan(){
-  const c = paqActual(), r = precioPaquete(c), fin = sel.modo === 'fin';
-  let t = 'Buenas. Escribo por la propuesta de convenio Electro Shop Morandin – CCIET (Ref. ESM-CCIET-01).\n\n' +
-    'Paquete consultado:\n' +
-    '• ' + c.nombre + ' (' + c.unidades + ')\n' +
-    '• Modalidad: ' + (fin ? 'financiado a 45 días' : 'pago de contado') + '\n' +
-    '• Equipos: ' + money(fin ? r.equipos : r.eqCont, 'USD') + '\n' +
-    '• Instalación: ' + money(r.mano, 'USD') + '\n' +
-    '• Total: ' + money(fin ? r.fin : r.cont, 'USD') + '\n';
-  if (fin) CONFIG.calendario.forEach(function(k){
-    t += '   – ' + k.et + ' (' + k.dia + '): ' + money((r.fin*k.pct/100), 'USD') + '\n';
-  });
-  return t + '\nQuedo atento. Gracias.';
+/* ── Cotizador tipo factura (modal) ───────────────────────────────────
+   Sustituye al antiguo simulador de 3 paquetes fijos: se arma renglón
+   por renglón y sugiere la mano de obra según el equipo agregado. ── */
+const TAB_FLAT = {};
+CONFIG.tabulador.forEach(g => g[1].forEach(r => { TAB_FLAT[r[0]] = parseFloat(String(r[1]).replace(',', '.')); }));
+
+function sugerirRenglon(p){
+  const d = p[1].toUpperCase();
+  if (p[5] === 'cctv' && d.indexOf('CAMARA') >= 0){
+    if (d.indexOf('PTZ') >= 0) return 'Domo PTZ instalado';
+    return (d.indexOf('EXTERIOR') >= 0 || d.indexOf('BULLET') >= 0) ? 'Punto de cámara externa' : 'Punto de cámara interna';
+  }
+  if (p[5] === 'grab' && (d.indexOf('DVR') >= 0 || d.indexOf('NVR') >= 0)) return 'Configuración de DVR o NVR';
+  if ((p[5] === 'ener' || p[5] === 'solar') && d.indexOf('INVERSOR') >= 0){
+    const m = d.match(/\b(\d+)KW\b/);
+    return (m && ['1','3','6'].indexOf(m[1]) >= 0) ? 'Instalación de inversor '+m[1]+' kW' : null;
+  }
+  if (p[5] === 'ener' && d.indexOf('UPS') >= 0) return 'Punto eléctrico';
+  if (p[5] === 'acc'){
+    if (d.indexOf('ALARMA') >= 0) return 'Kit de alarma instalado';
+    if (d.indexOf('PORTERO') >= 0 || d.indexOf('TIMBRE') >= 0) return 'Videoportero';
+    if (d.indexOf('HUELLA') >= 0 || d.indexOf('TERMINAL') >= 0) return 'Terminal biométrico';
+  }
+  return null;
 }
 
-/* ── Render ─────────────────────────────────────────────────────────── */
-function render(){
-  const c = paqActual(), r = precioPaquete(c), fin = sel.modo === 'fin';
-  const total = fin ? r.fin : r.cont;
+let quote = { items: [], manual: [] };   // items:[{code,qty}]  manual:[{label,qty}]
+let quoteModo = 'fin';
 
-  $('#outTotal').textContent = money(total);
-  $('#outTotalAlt').textContent = '≈ ' + money(total, otra()) + '  ·  tasa de referencia ' + nf.format(CONFIG.tasaBs);
-  $('#outPaq').textContent = c.nombre;
-  $('#outEquipos').textContent = money(fin ? r.equipos : r.eqCont);
-  $('#outMano').textContent = money(r.mano);
-  $('#rowAhorro').hidden = fin;
-  $('#outAhorro').textContent = '− ' + money(r.ahorro);
+function quoteAdd(code, qty){
+  qty = qty || 1;
+  const ex = quote.items.find(i => i.code === code);
+  if (ex) ex.qty += qty; else quote.items.push({ code:code, qty:qty });
+  renderQuote();
+}
+function quoteSetQty(code, qty){
+  const it = quote.items.find(i => i.code === code); if (!it) return;
+  it.qty = qty;
+  if (it.qty <= 0) quote.items = quote.items.filter(i => i.code !== code);
+  renderQuote();
+}
+function quoteRemove(code){ quote.items = quote.items.filter(i => i.code !== code); renderQuote(); }
+function quoteAddManual(label){
+  if (!label || TAB_FLAT[label] == null) return;
+  const ex = quote.manual.find(m => m.label === label);
+  if (ex) ex.qty += 1; else quote.manual.push({ label:label, qty:1 });
+  renderQuote();
+}
+function quoteSetManualQty(label, qty){
+  const it = quote.manual.find(m => m.label === label); if (!it) return;
+  it.qty = qty;
+  if (it.qty <= 0) quote.manual = quote.manual.filter(m => m.label !== label);
+  renderQuote();
+}
+function quoteAutoLabor(){
+  const map = {};
+  quote.items.forEach(function(it){
+    const p = PIDX[it.code]; if (!p) return;
+    const label = sugerirRenglon(p); if (!label) return;
+    map[label] = (map[label]||0) + it.qty;
+  });
+  return Object.keys(map).map(label => ({ label:label, qty:map[label], price:TAB_FLAT[label] }));
+}
+function quoteTotals(){
+  let equipos = 0;
+  quote.items.forEach(function(it){ const p = PIDX[it.code]; if (p) equipos += p[4]*it.qty; });
+  let mano = 0;
+  quoteAutoLabor().forEach(function(r){ mano += r.price*r.qty; });
+  quote.manual.forEach(function(m){ mano += (TAB_FLAT[m.label]||0)*m.qty; });
+  const DESC = CONFIG.descuentoContado/100, eqCont = equipos*(1-DESC);
+  return { equipos:equipos, mano:mano, eqCont:eqCont, ahorro:equipos-eqCont, fin:equipos+mano, cont:eqCont+mano };
+}
+function quoteBuscar(term){
+  const t = term.trim().toUpperCase();
+  if (!t) return [];
+  return PROD.filter(p => (p[0]+' '+p[1]).toUpperCase().indexOf(t) >= 0).slice(0, 8);
+}
 
-  const cal = $('#calendario');
+function renderQuote(){
+  const eqItems = $('#qEqItems'), eqEmpty = $('#qEqEmpty');
+  eqItems.innerHTML = quote.items.map(function(it){
+    const p = PIDX[it.code]; if (!p) return '';
+    return '<li data-code="'+it.code+'"><span class="qi__name"><b>'+titulo(sinRef(p[1],p[0]))+'</b><em>'+p[0]+'</em></span>'+
+      '<span class="qi__qty"><button type="button" data-qminus aria-label="Quitar una unidad">−</button><span>'+it.qty+'</span><button type="button" data-qplus aria-label="Agregar una unidad">+</button></span>'+
+      '<span class="qi__price">'+money(p[4]*it.qty)+'</span>'+
+      '<button type="button" class="qi__rm" data-qrm aria-label="Quitar renglón">&times;</button></li>';
+  }).join('');
+  eqEmpty.hidden = quote.items.length > 0;
+  $('#qEqCount').textContent = quote.items.length ? '('+quote.items.reduce((s,i)=>s+i.qty,0)+')' : '';
+
+  const auto = quoteAutoLabor();
+  $('#qMoAuto').innerHTML = auto.map(function(r){
+    return '<li><span class="qi__name"><b>'+r.label+'</b><em>'+r.qty+' × '+money(r.price)+'</em></span>'+
+      '<span class="qi__tag">Sugerido</span><span class="qi__price">'+money(r.price*r.qty)+'</span></li>';
+  }).join('');
+  $('#qMoManual').innerHTML = quote.manual.map(function(m){
+    return '<li data-label="'+m.label+'"><span class="qi__name"><b>'+m.label+'</b><em>'+m.qty+' × '+money(TAB_FLAT[m.label])+'</em></span>'+
+      '<span class="qi__qty"><button type="button" data-mminus aria-label="Quitar una unidad">−</button><span>'+m.qty+'</span><button type="button" data-mplus aria-label="Agregar una unidad">+</button></span>'+
+      '<span class="qi__price">'+money(TAB_FLAT[m.label]*m.qty)+'</span>'+
+      '<button type="button" class="qi__rm" data-mrm aria-label="Quitar renglón">&times;</button></li>';
+  }).join('');
+  $('#qMoEmpty').hidden = (auto.length + quote.manual.length) > 0;
+
+  const t = quoteTotals(), fin = quoteModo === 'fin';
+  $('#qOutEquipos').textContent = money(fin ? t.equipos : t.eqCont);
+  $('#qOutMano').textContent = money(t.mano);
+  $('#qRowAhorro').hidden = fin;
+  $('#qOutAhorro').textContent = '− ' + money(t.ahorro);
+  $('#qOutTotalLbl').textContent = fin ? 'Total financiado' : 'Total de contado';
+  $('#qOutTotal').textContent = money(fin ? t.fin : t.cont);
+  $('#qDescLbl').textContent = '−' + CONFIG.descuentoContado + '% en equipos';
+  $('#qTasaNota').textContent = 'Tasa de referencia Bs. ' + nf.format(CONFIG.tasaBs) + ' al ' + CONFIG.tasaFecha + '. Cada pago se recibe a la tasa del día.';
+
+  const cal = $('#qCalendario');
   if (fin){
     cal.hidden = false;
     cal.innerHTML = CONFIG.calendario.map(function(k){
-      return '<div class="cuota"><span class="cuota__d">'+k.dia+'</span>' +
-        '<b class="cuota__m">'+money(total*k.pct/100)+'</b>' +
+      return '<div class="cuota"><span class="cuota__d">'+k.dia+'</span>'+
+        '<b class="cuota__m">'+money(t.fin*k.pct/100)+'</b>'+
         '<span class="cuota__p">'+k.et+' · '+k.pct+'%</span></div>';
     }).join('');
-  } else {
-    cal.hidden = true;
-  }
-  $('#calNota').textContent = fin
-    ? 'Tres pagos dentro de 45 días. Sin intereses ni recargos por plazo.'
+  } else cal.hidden = true;
+  $('#qCalNota').textContent = fin
+    ? 'Tres pagos dentro de 45 días, a precio de lista. La diferencia frente al contado es el costo de diferir el pago.'
     : 'Pago único contra entrega. El descuento aplica solo sobre equipos; la instalación se cobra íntegra.';
 
-  $$('[data-fin]').forEach(function(el){
-    const v = +(sel.modo === 'fin' ? el.dataset.fin : el.dataset.cont);
-    if (el.hasAttribute('data-alt')) el.textContent = (sel.modo === 'fin' ? 'De contado: ' : 'Financiado: ')
-      + money(+(sel.modo === 'fin' ? el.dataset.cont : el.dataset.fin));
-    else el.textContent = money(v);
+  $('#qWa').href = waLink(mensajeCotizacion());
+
+  const usados = {}; auto.forEach(r => usados[r.label]=1); quote.manual.forEach(m => usados[m.label]=1);
+  const selEl = $('#qMoSelect');
+  selEl.innerHTML = '<option value="">+ Agregar otro renglón de instalación…</option>' +
+    CONFIG.tabulador.map(g => g[1].filter(r => !usados[r[0]]).map(r =>
+      '<option value="'+r[0]+'">'+r[0]+' — $'+r[1]+'</option>').join('')).join('');
+
+  syncOpts();
+}
+
+function mensajeCotizacion(){
+  const t = quoteTotals(), fin = quoteModo === 'fin';
+  let msg = 'Buenas. Escribo por la propuesta de convenio Electro Shop Morandin, C.A. – CCIET (Ref. ESM-CCIET-01).\n\n' +
+    'Cotización armada en el sitio:\n';
+  quote.items.forEach(function(it){
+    const p = PIDX[it.code]; if (!p) return;
+    msg += '• ' + it.qty + '× ' + titulo(sinRef(p[1],p[0])) + ' (' + p[0] + ')\n';
   });
-  $$('[data-modo-lbl]').forEach(e => { e.textContent = fin ? 'Financiado a 45 días' : 'Pago de contado'; });
+  quoteAutoLabor().concat(quote.manual).forEach(function(r){
+    msg += '• Instalación — ' + r.label + ' ×' + r.qty + '\n';
+  });
+  msg += '\n• Modalidad: ' + (fin ? 'financiado a 45 días' : 'pago de contado') + '\n' +
+    '• Equipos: ' + money(fin ? t.equipos : t.eqCont, 'USD') + '\n' +
+    '• Instalación: ' + money(t.mano, 'USD') + '\n' +
+    '• Total: ' + money(fin ? t.fin : t.cont, 'USD') + '\n';
+  if (fin) CONFIG.calendario.forEach(function(k){
+    msg += '   – ' + k.et + ' (' + k.dia + '): ' + money(t.fin*k.pct/100, 'USD') + '\n';
+  });
+  return msg + '\nQuedo atento. Gracias.';
+}
+
+function abrirCotizadorConPaquete(pkgId){
+  const c = CONFIG.paquetes.find(p => p.id === pkgId); if (!c) return;
+  quote.items = c.items.map(it => ({ code:it[0], qty:it[1] }));
+  quote.manual = [];
+  abrirCotizador();
+}
+function abrirCotizador(){
+  renderQuote();
+  $('#quoteModal').hidden = false;
+  document.body.classList.add('qopen');
+  setTimeout(() => { const x = $('.qmodal__x'); if (x) x.focus(); }, 50);
+}
+function cerrarCotizador(){
+  $('#quoteModal').hidden = true;
+  document.body.classList.remove('qopen');
+}
+
+(function(){
+  const modal = $('#quoteModal'); if (!modal) return;
+
+  $('#openQuote').addEventListener('click', abrirCotizador);
+  $$('[data-qclose]', modal).forEach(el => el.addEventListener('click', cerrarCotizador));
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) cerrarCotizador(); });
+
+  $('#qPresets').innerHTML = CONFIG.paquetes.map(p =>
+    '<button type="button" data-preset="'+p.id+'">'+p.corto+'</button>').join('');
+  $('#qPresets').addEventListener('click', function(e){
+    const b = e.target.closest('[data-preset]'); if (!b) return;
+    abrirCotizadorConPaquete(b.dataset.preset);
+  });
+
+  const search = $('#qSearch'), results = $('#qResults');
+  search.addEventListener('input', function(){
+    const hits = quoteBuscar(search.value);
+    if (!hits.length){ results.hidden = true; results.innerHTML=''; return; }
+    results.hidden = false;
+    results.innerHTML = hits.map(p =>
+      '<button type="button" data-add="'+p[0]+'"><span><b>'+titulo(sinRef(p[1],p[0]))+'</b><small>'+p[0]+'</small></span><span>'+money(p[4])+'</span></button>').join('');
+  });
+  results.addEventListener('click', function(e){
+    const b = e.target.closest('[data-add]'); if (!b) return;
+    quoteAdd(b.dataset.add, 1);
+    search.value = ''; results.hidden = true; results.innerHTML = '';
+  });
+
+  $('#qEqItems').addEventListener('click', function(e){
+    const li = e.target.closest('li[data-code]'); if (!li) return;
+    const code = li.dataset.code, it = quote.items.find(i => i.code === code); if (!it) return;
+    if (e.target.closest('[data-qplus]')) quoteSetQty(code, it.qty+1);
+    else if (e.target.closest('[data-qminus]')) quoteSetQty(code, it.qty-1);
+    else if (e.target.closest('[data-qrm]')) quoteRemove(code);
+  });
+  $('#qMoManual').addEventListener('click', function(e){
+    const li = e.target.closest('li[data-label]'); if (!li) return;
+    const label = li.dataset.label, m = quote.manual.find(x => x.label === label); if (!m) return;
+    if (e.target.closest('[data-mplus]')) quoteSetManualQty(label, m.qty+1);
+    else if (e.target.closest('[data-mminus]')) quoteSetManualQty(label, m.qty-1);
+    else if (e.target.closest('[data-mrm]')) quoteSetManualQty(label, 0);
+  });
+  $('#qMoSelect').addEventListener('change', function(){
+    if (this.value) quoteAddManual(this.value);
+    this.value = '';
+  });
+  $$('input[name=qmodo]').forEach(r => r.addEventListener('change', function(){ quoteModo = r.value; renderQuote(); }));
+})();
+
+/* ── Precios dinámicos de las tarjetas de paquete (equipos/instalación) ── */
+function pintarPreciosPaquetes(){
+  $$('.combo').forEach(function(card){
+    const amt = $('.combo__amt', card), tot = $('.combo__tot', card);
+    if (amt) amt.textContent = money(+amt.dataset.fin);
+    if (tot) tot.textContent = 'De contado: ' + money(+tot.dataset.cont);
+  });
   $$('.bom .pz').forEach(function(el){ if (el.dataset.usd) el.textContent = money(+el.dataset.usd); });
   $$('b[data-eq]').forEach(el => { el.textContent = money(+el.dataset.eq); });
   $$('b[data-mo]').forEach(el => { el.textContent = money(+el.dataset.mo); });
-
-  $('#waPlan').href = waLink(mensajePlan());
-  pintaComparador(); syncOpts(); reveal(); armaAnimados();
 }
 
 /* ── Moneda ─────────────────────────────────────────────────────────── */
@@ -2105,7 +2542,9 @@ $$('.cursw button').forEach(function(b){
   b.addEventListener('click', function(){
     moneda = b.dataset.cur;
     $$('.cursw button').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.cur === moneda)));
-    render();
+    pintarPreciosPaquetes();
+    pintarLossBanner();
+    if ($('#quoteModal') && !$('#quoteModal').hidden) renderQuote();
     if (window.__pintaCatalogo) window.__pintaCatalogo();
   });
 });
@@ -2113,13 +2552,13 @@ $$('.cursw button').forEach(x => x.setAttribute('aria-pressed', String(x.dataset
 
 /* ── Datos de contacto ──────────────────────────────────────────────── */
 (function(){
-  const saludo = 'Buenas. Escribo en relación con la propuesta de convenio Electro Shop Morandin – CCIET (Ref. ESM-CCIET-01). Agradezco su atención.';
+  const saludo = 'Buenas. Escribo en relación con la propuesta de convenio Electro Shop Morandin, C.A. – CCIET (Ref. ESM-CCIET-01). Agradezco su atención.';
   $('#waMain').href = waLink(saludo);
   $('#dockWa').href = waLink(saludo);
   $('#cTel').textContent = CONFIG.telefonoTexto;
   $('#cTel').href = waLink(saludo);
   $('#mailMain').href = 'mailto:' + CONFIG.email + '?subject=' +
-    encodeURIComponent('Propuesta de convenio Electro Shop Morandin – CCIET (Ref. ESM-CCIET-01)');
+    encodeURIComponent('Propuesta de convenio Electro Shop Morandin, C.A. – CCIET (Ref. ESM-CCIET-01)');
   $('#cRep').textContent  = CONFIG.representante;
   $('#cMail').textContent = CONFIG.email;
   $('#cDir').textContent  = CONFIG.direccion;
@@ -2130,8 +2569,7 @@ $$('.cursw button').forEach(x => x.setAttribute('aria-pressed', String(x.dataset
   $$('[data-rif]').forEach(e => { e.textContent = CONFIG.rif; });
   $$('[data-ciudad]').forEach(e => { e.textContent = CONFIG.ciudad; });
   $$('[data-web]').forEach(a => { a.textContent = CONFIG.web; a.href = 'https://' + CONFIG.web; });
-  $$('[data-min-jornada]').forEach(e => { e.textContent = CONFIG.minimoJornada; });
-  $$('[data-opt-jornada]').forEach(e => { e.textContent = CONFIG.optimoJornada; });
+  $$('[data-min-jornada]').forEach(e => { e.textContent = CONFIG.minimoJornada; e.dataset.count = CONFIG.minimoJornada; });
   $$('[data-desc]').forEach(e => { e.textContent = CONFIG.descuentoContado; });
   const d = new Date();
   const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
@@ -2139,9 +2577,24 @@ $$('.cursw button').forEach(x => x.setAttribute('aria-pressed', String(x.dataset
   $('#year').textContent = d.getFullYear();
 })();
 
-render();
+pintarPreciosPaquetes();
+reveal();
+armaAnimados();
 montaRail();
 anclasInternas();
+
+/* P2-01 · Forzar el articulado abierto al imprimir o exportar a PDF */
+(function(){
+  let reabrir = [];
+  window.addEventListener('beforeprint', function(){
+    reabrir = $$('details.pl:not([open])');
+    reabrir.forEach(d => d.setAttribute('open', ''));
+  });
+  window.addEventListener('afterprint', function(){
+    reabrir.forEach(d => d.removeAttribute('open'));
+    reabrir = [];
+  });
+})();
 
 })();
 </script>
