@@ -1,0 +1,26 @@
+# ══════════════════════════════════════════════════════════════════
+#  NO PUBLICAR — información interna y documentos de terceros
+# ══════════════════════════════════════════════════════════════════
+
+# Catálogo maestro: contiene la columna de PRECIO DE COSTO de los 263
+# productos. Publicarlo expone el margen ante el gremio y la competencia.
+# El sitio solo lleva los precios de venta ya calculados.
+Catalogo_Maestro_ElectroShop.csv
+*.csv
+
+# Carta oficial de PoliTáchira a la Junta Directiva de CCIET, con firma
+# y sello de un funcionario público. Documento de un tercero.
+PROYECTO DE SEGURIDAD.pdf
+*.pdf
+
+# Logotipo CCIET de baja resolución, sustituido por Tachira.png
+logo.jpg
+
+# Temporales del proceso de generación
+_*
+*.tmp
+
+# Sistema
+Thumbs.db
+.DS_Store
+desktop.ini
