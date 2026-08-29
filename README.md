@@ -60,10 +60,31 @@ códigos y sus renglones de mano de obra.
 
 ```
 index.html              El documento completo, autocontenido
+og-image.jpg            Vista previa al compartir el enlace (WhatsApp, redes)
 ElectroShop_Logo.png    Marca del emisor
 Tachira.png             Emblema CCIET (destinatario)
 marca-*.png             Logotipos de las marcas representadas
 ```
+
+El favicon va incrustado en base64 dentro del `<head>`, igual que los logos
+del cuerpo — no depende de ningún archivo aparte.
+
+`og-image.jpg` sí es un archivo real (no puede ser base64): las apps que
+generan la vista previa al compartir un enlace —WhatsApp incluida— piden la
+imagen por HTTP, no la leen del HTML. Si se cambia el mensaje o la marca de
+portada, hay que regenerar esta imagen para que la vista previa siga
+correspondiendo al contenido.
+
+---
+
+## Tasa de cambio
+
+`CONFIG.tasaBs` funciona como respaldo: el sitio intenta traer la tasa oficial
+del BCV en vivo desde `CONFIG.tasaApi` (por defecto, `ve.dolarapi.com`) al
+cargar la página, y si lo logra, reemplaza el respaldo y recalcula todos los
+montos en bolívares. Si no hay red o la API no responde, sigue con el valor
+fijo de `CONFIG.tasaBs` / `CONFIG.tasaFecha` sin mostrar ningún error —
+conviene mantener ese respaldo razonablemente actualizado igual.
 
 ---
 
